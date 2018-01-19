@@ -6,6 +6,7 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Terms;
 
 class RegisterController extends Controller
 {
@@ -28,6 +29,17 @@ class RegisterController extends Controller
      * @var string
      */
     protected $redirectTo = '/';
+
+    /**
+     * Show the application registration form.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showRegistrationForm()
+    {
+        $terms = Terms::all()->first();
+        return view('auth.register',['terms' => $terms]);
+    }
 
     /**
      * Create a new controller instance.

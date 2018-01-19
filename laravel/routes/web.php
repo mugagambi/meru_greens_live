@@ -15,8 +15,8 @@ Route::post('/contact', 'ContactController@save_message')->name('save-message');
 
 Auth::routes();
 
-Route::get('/login/{social}','Auth\LoginController@socialLogin')->where('social','twitter|facebook|linkedin|google|github|bitbucket');
-Route::get('/login/{social}/callback','Auth\LoginController@handleProviderCallback')->where('social','twitter|facebook|linkedin|google|github|bitbucket');
+Route::get('/login/{social}', 'Auth\LoginController@socialLogin')->where('social', 'twitter|facebook|linkedin|google|github|bitbucket');
+Route::get('/login/{social}/callback', 'Auth\LoginController@handleProviderCallback')->where('social', 'twitter|facebook|linkedin|google|github|bitbucket');
 
 Route::get('/auth/update', 'User@showUpdateForm')->name('update-form')->middleware('auth');
 Route::get('/auth/change-password', 'User@showPasswordChangeForm')->name('change-password')->middleware('auth');
@@ -44,6 +44,7 @@ Route::get('/jobs/{job}', 'CareersController@job')->name('job');
 Route::get('/recipes', 'RecipeController@index')->name('recipes');
 Route::get('/recipes/{recipe}', 'RecipeController@recipe')->name('recipe');
 Route::get('/contact', 'IndexController@contact')->name('contact');
+Route::get('/terms', 'TersmPrivacyController@terms')->name('terms');
 
 Route::get('/administrator/login', 'Admin\Auth\AdminLoginController@showLoginForm')->name('admin.login');
 Route::post('/administrator/login', 'Admin\Auth\AdminLoginController@submitLogin')->name('admin.submit-login');

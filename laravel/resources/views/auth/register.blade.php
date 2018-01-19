@@ -197,12 +197,9 @@
                             <h4 class="modal-title" id="myModalLabel">Terms & Conditions</h4>
                         </div>
                         <div class="modal-body">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi,
-                                aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi
-                                tempore possimus ipsa porro delectus quidem dolorem ad.</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi,
-                                aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi
-                                tempore possimus ipsa porro delectus quidem dolorem ad.</p>
+                            <h3 class="text-center">Terms and Conditions</h3>
+                            <p><b>Last Updated: {{$terms->updated_at->toDayDateTimeString()}}</b></p>
+                            {!! $terms->terms !!}
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
