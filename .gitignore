@@ -61,3 +61,5 @@ laravel/storage/app/public/
 /.ftpquota
 /.mysql_history
 /access-logs
+/public_html/uploads
+error_log
