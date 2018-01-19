@@ -213,11 +213,6 @@
                             <div class="col-lg-6">
                                 <div class="copyright">
                                     <p>&copy; 2017, Meru Greens Horticulture Ltd</p>
-                                    <div class="credits">
-                                        <a href="https://bootstrapmade.com/bootstrap-business-templates/">Design
-                                            by: </a> by <a
-                                                href="https://bootstrapmade.com/">BootstrapMade</a>
-                                    </div>
                                 </div>
                             </div>
                             <div class="col-lg-6"><p>Developed by: <a href="#">Indevs Digital</a>

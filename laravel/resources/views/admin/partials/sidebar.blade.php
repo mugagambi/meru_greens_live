@@ -112,6 +112,18 @@
                     <span>Job Vacancies</span>
                 </a>
             </li>
+            <li @if($url=='terms' ) class="active" @endif>
+                <a href="{{route('admin.terms')}}">
+                    <i class="fa fa-check-square-o"></i>
+                    <span>Terms & Conditions</span>
+                </a>
+            </li>
+            <li @if($url=='jobs' ) class="active" @endif>
+                <a href="{{route('careers.index')}}">
+                    <i class="fa fa-user-secret"></i>
+                    <span>Privacy Policy</span>
+                </a>
+            </li>
         </ul>
         <!-- /.sidebar-menu -->
     </section>
