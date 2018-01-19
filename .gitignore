@@ -1,7 +1,6 @@
 laravel/node_modules
 laravel/public/hot
 laravel/public/storage
-/public_html/storage
 laravel/storage/*.key
 laravel/vendor
 /.idea/
@@ -63,3 +62,5 @@ laravel/storage/app/public/
 /access-logs
 /public_html/uploads
 error_log
+.github
+/public_html/storage
