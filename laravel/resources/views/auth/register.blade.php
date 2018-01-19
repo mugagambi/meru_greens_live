@@ -198,8 +198,13 @@
                         </div>
                         <div class="modal-body">
                             <h3 class="text-center">Terms and Conditions</h3>
-                            <p><b>Last Updated: {{$terms->updated_at->toDayDateTimeString()}}</b></p>
-                            {!! $terms->terms !!}
+                            @if($terms)
+                                <p><b>Last Updated: {{$terms->updated_at->toDayDateTimeString()}}</b></p>
+                                {!! $terms->terms !!}
+                            @else
+                                <h5 class="text-center">Our Terms & Conditions have not yet updated.Check back
+                                    later.</h5>
+                            @endif
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
