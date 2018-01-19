@@ -97,7 +97,7 @@
                             <ul class="dropdown-menu">
                                 <li><a href="{{route('fruits')}}">Fruits</a></li>
                                 <li><a href="{{route('vegs')}}">vegetables</a></li>
-                                <li><a href="index2.html">Others</a></li>
+                                <li><a href="{{route('others')}}">Others</a></li>
                             </ul>
 
                         </li>

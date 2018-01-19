@@ -32,6 +32,7 @@ Route::get('/cart', 'ProductsController@shopping_cart')->name('cart')->middlewar
 Route::get('/add-to-cart', 'ProductsController@add_to_cart')->name('add_to_cart')->middleware('auth');
 Route::delete('/remove_from_cart/{item}', 'ProductsController@remove_from_cart')->name('remove_from_cart')->middleware('auth');
 Route::get('/products/fruits', 'ProductsController@fruits')->name('fruits');
+Route::get('/products/others', 'ProductsController@others')->name('others');
 Route::get('/products/items', 'ProductsController@product_items')->name('product_items');
 Route::get('/products/vegetables', 'ProductsController@vegs')->name('vegs');
 Route::get('/products/fruits/{sub_category}', 'ProductsController@products')->name('fruit-products');

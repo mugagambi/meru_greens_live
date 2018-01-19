@@ -22,7 +22,9 @@ class ProductsController extends Controller
             ->limit(6)->get();
         $vegs = SubCategory::where('category', 'Vegetables')
             ->limit(6)->get();
-        return view('site.all-products', ['fruits' => $fruits, 'vegs' => $vegs]);
+        $other = SubCategory::where('category', 'Others')
+            ->limit(6)->get();
+        return view('site.all-products', ['fruits' => $fruits, 'vegs' => $vegs, 'others' => $other]);
     }
 
     public function fruits()
@@ -35,6 +37,11 @@ class ProductsController extends Controller
     {
         $sub = SubCategory::where('category', 'Vegetables')->get();
         return view('site.vegs', ['subs' => $sub]);
+    }
+    public function others()
+    {
+        $sub = SubCategory::where('category', 'Others')->get();
+        return view('site.others', ['subs' => $sub, 'url' => 'products']);
     }
 
     public function fruit_product($product)
