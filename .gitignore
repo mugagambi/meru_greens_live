@@ -1,6 +1,7 @@
 laravel/node_modules
 laravel/public/hot
 laravel/public/storage
+/public_html/storage
 laravel/storage/*.key
 laravel/vendor
 /.idea/
