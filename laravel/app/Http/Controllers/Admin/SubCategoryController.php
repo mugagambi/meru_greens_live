@@ -78,10 +78,15 @@ class SubCategoryController extends Controller
     public function update(Request $request, SubCategory $subCategory)
     {
         $this->validate($request, [
-            'name' => 'required|unique:sub_categories',
+            'name' => 'required',
             'main' => 'required',
             'pic' => 'image|mimes:jpeg,png,jpg|max:2048'
         ]);
+        if ($subCategory->name != $request->input('name')) {
+            $this->validate($request, [
+                'name'=> 'unique:sub_categories'
+            ]);
+        }
         if ($request->has('pic')) {
             $image = $request->file('pic');
             $input['pic'] = time() . '.' . $image->getClientOriginalExtension();
