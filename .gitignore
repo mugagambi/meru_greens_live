@@ -55,5 +55,8 @@ laravel/storage/app/public/
 /.subaccounts/
 /tmp/
 /.trash/
-/www/
+/www
 /.zshrc
+/.ftpquota
+/.mysql_history
+/access-logs
