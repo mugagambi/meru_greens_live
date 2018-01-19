@@ -5,6 +5,12 @@
 
     RewriteEngine On
 
+    #Force Https
+    RewriteCond %{SERVER_PORT} 80
+    RewriteCond %{HTTP_HOST} ^merugreens\.com [OR]
+    RewriteCond %{HTTP_HOST} ^www\.merugreens\.com
+    RewriteRule ^(.*)$ https://www.merugreens.com/$1 [R,L]
+
     # Redirect Trailing Slashes If Not A Folder...
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_URI} (.+)/$
