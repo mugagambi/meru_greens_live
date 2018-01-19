@@ -169,11 +169,11 @@
                     <div class="widget">
                         <h4>Information</h4>
                         <ul class="link-list">
-                            <li><a href="#">Press release</a></li>
+                            <li><a href="#">News</a></li>
                             <li><a href="#">Terms and conditions</a></li>
                             <li><a href="#">Privacy policy</a></li>
-                            <li><a href="#">Career center</a></li>
-                            <li><a href="#">Contact us</a></li>
+                            <li><a href="{{route('jobs')}}">Career center</a></li>
+                            <li><a href="{{route('contact')}}">Contact us</a></li>
                         </ul>
                     </div>
 
@@ -182,11 +182,10 @@
                     <div class="widget">
                         <h4>Pages</h4>
                         <ul class="link-list">
-                            <li><a href="#">Press release</a></li>
-                            <li><a href="#">Terms and conditions</a></li>
-                            <li><a href="#">Privacy policy</a></li>
-                            <li><a href="#">Career center</a></li>
-                            <li><a href="#">Contact us</a></li>
+                            <li><a href="{{route('products')}}">Products</a></li>
+                            <li><a href="{{route('fruits')}}">Fruits</a></li>
+                            <li><a href="{{route('vegs')}}">Vegetables</a></li>
+                            <li><a href="{{route('others')}}">Other Categories</a></li>
                         </ul>
                     </div>
                 </div>
