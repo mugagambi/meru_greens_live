@@ -38,7 +38,14 @@
                             </div>
                         @endforeach
                     </div>
-            @endforeach
+                @endforeach
+            </div>
+        @else
+            <div class="container">
+                <h5 class="text-center">Sorry, there are no fruit categories right now.Check back
+                    later.</h5>
+            </div>
+
         @endif
     </section>
 @endsection
