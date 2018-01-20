@@ -29,10 +29,10 @@
                         <div class="row">
                             <div class="col-md-8 col-md-offset-2 text-center">
                                 <h4><u>Our Mission</u></h4>
-                                <p><strong>{{$about->mission}}</strong></p>
+                                <p>{{$about->mission}}</p>
                                 <br>
                                 <h4><u>Our Vision</u></h4>
-                                <p><strong>{{$about->vision}}</strong></p>
+                                <p>{{$about->vision}}</p>
                                 <br>
                                 <h4><u>Our History</u></h4>
                                 {!! $about->about_us !!}
