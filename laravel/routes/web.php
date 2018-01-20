@@ -48,6 +48,14 @@ Route::get('/terms', 'TersmPrivacyController@terms')->name('terms');
 Route::get('/privacy', 'TersmPrivacyController@privacy')->name('privacy');
 
 Route::get('/administrator/login', 'Admin\Auth\AdminLoginController@showLoginForm')->name('admin.login');
+Route::get('/administrator/password/reset-link', 'Admin\Auth\AdminForgotPasswordController@showLinkRequestForm')
+    ->name('admin.password.reset_link');
+Route::post('/administrator/password/email', 'Admin\Auth\AdminForgotPasswordController@sendResetLinkEmail')
+    ->name('admin.password.email');
+Route::get('administrator/password/reset/{token}', 'Admin\Auth\AdminResetPasswordController@showResetForm')
+    ->name('reset-form');
+Route::post('administrator/password/reset', 'Admin\Auth\AdminResetPasswordController@reset')
+    ->name('admin-reset');
 Route::post('/administrator/login', 'Admin\Auth\AdminLoginController@submitLogin')->name('admin.submit-login');
 Route::post('/administrator/logout', 'Admin\Auth\AdminLoginController@logout')->name('admin.logout');
 Route::group([
@@ -64,6 +72,7 @@ Route::group([
     Route::post('csr', 'Admin\CSRController@store')->name('admin.csr.store');
     Route::post('about', 'Admin\AboutUsController@store')->name('admin.about.store');
     Route::resource('slider', 'Admin\CoureselController', ['except' => 'show']);
+    Route::resource('services', 'Admin\ServicesController', ['except' => 'show']);
     Route::resource('sub-category', 'Admin\SubCategoryController', ['except' => 'show']);
     Route::resource('products', 'Admin\ProductController', ['except' => 'show']);
     Route::get('orders', 'Admin\OrdersController@index')->name('orders');

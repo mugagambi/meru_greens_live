@@ -70,6 +70,12 @@
                     <span>About Us</span>
                 </a>
             </li>
+            <li @if($url=='services' ) class="active" @endif>
+                <a href="{{route('services.index')}}">
+                    <i class="fa fa-cogs"></i>
+                    <span>Our Services</span>
+                </a>
+            </li>
             <li @if($url=='slider' ) class="active" @endif>
                 <a href="{{route('slider.index')}}">
                     <i class="fa fa-picture-o"></i>

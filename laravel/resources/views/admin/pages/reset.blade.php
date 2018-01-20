@@ -3,11 +3,10 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Meru Greens | Log in</title>
+    <title>Meru Greens | Reset Password</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link rel="stylesheet" href="{{asset('admin/css/admin_login.css')}}">
-    <link rel="stylesheet" href="{{asset('admin/iCheck/square/blue.css')}}">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -35,10 +34,11 @@
                 <p>{!!   \Session::get('error') !!}</p>
             </div><br/>
         @endif
-        <p class="login-box-msg">Sign in to start your session</p>
+        <p class="login-box-msg">Reset Password</p>
 
-        <form action="{{route('admin.submit-login')}}" method="POST" role="form">
+        <form action="{{route('admin-reset')}}" method="POST" role="form">
             {!! csrf_field() !!}
+            <input type="hidden" name="token" value="{{ $token }}">
             <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }} has-feedback">
                 <input type="email" class="form-control" name="email" placeholder="Email" value="{{ old('email') }}"
                        required>
@@ -58,38 +58,22 @@
                     </span>
                 @endif
             </div>
-            <div class="row">
-                <div class="col-xs-8">
-                    <div class="checkbox icheck">
-                        <label>
-                            <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}>
-                            Remember Me
-                        </label>
-                    </div>
-                </div>
-                <!-- /.col -->
-                <div class="col-xs-4">
-                    <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
-                </div>
-                <!-- /.col -->
+            <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }} has-feedback">
+                <input type="password" name="password_confirmation" class="form-control" placeholder="Confirm Password"
+                       required>
+                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                @if ($errors->has('password_confirmation'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('password_confirmation') }}</strong>
+                    </span>
+                @endif
             </div>
+            <button type="submit" class="btn btn-primary btn-block btn-flat">Reset Password</button>
         </form>
-        <a href="{{route('admin.password.reset_link')}}">I forgot my password</a><br>
-
     </div>
     <!-- /.login-box-body -->
 </div>
 <!-- /.login-box -->
 <script src="{{asset('/admin/js/admin_login.js')}}"></script>
-<script src="{{asset('/admin/iCheck/icheck.min.js')}}"></script>
-<script>
-    $(function () {
-        $('input').iCheck({
-            checkboxClass: 'icheckbox_square-blue',
-            radioClass: 'iradio_square-blue',
-            increaseArea: '20%' /* optional */
-        });
-    });
-</script>
 </body>
 </html>

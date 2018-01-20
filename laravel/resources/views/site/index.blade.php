@@ -38,7 +38,7 @@
                 <div class="col-lg-8">
                     <div class="cta-text">
                         <h2>Gold is yellow ... soil is Gold</h2>
-                        <p>We are the best fruit and vegetable producer and marketer</p>
+                        <p>We are the best fruit and vegetable producer and marketer in the region</p>
                     </div>
                 </div>
                 <div class="col-lg-4">
