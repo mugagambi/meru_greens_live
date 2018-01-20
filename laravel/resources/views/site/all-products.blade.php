@@ -28,7 +28,7 @@
                             <a href="{{route('product_items')}}?category={{$product->name}}"
                                title="click to view {{$product->name}} products"><img
                                         class="card-img-top img-responsive"
-                                        src="{{asset('uploads/'.$product->pic)}}"></a>
+                                        data-src="{{asset('uploads/'.$product->pic)}}"></a>
                             <p class="text-center"><b><u><a
                                                 href="{{route('product_items')}}?category={{$product->name}}"
                                                 title="click to view {{$product->name}} products">{{$product->name}}</a></u></b>
@@ -62,7 +62,7 @@
                             <a href="{{route('product_items')}}?category={{$product->name}}"
                                title="click to view {{$product->name}} products"><img
                                         class="card-img-top img-responsive"
-                                        src="{{asset('uploads/'.$product->pic)}}"></a>
+                                        data-src="{{asset('uploads/'.$product->pic)}}"></a>
                             <p class="text-center"><b><u><a
                                                 href="{{route('product_items')}}?category={{$product->name}}"
                                                 title="click to view {{$product->name}} products">{{$product->name}}</a></u></b>
@@ -97,7 +97,7 @@
                             <a href="{{route('product_items')}}?category={{$product->name}}"
                                title="click to view {{$product->name}} products"><img
                                         class="card-img-top img-responsive"
-                                        src="{{asset('uploads/'.$product->pic)}}"></a>
+                                        data-src="{{asset('uploads/'.$product->pic)}}"></a>
                             <p class="text-center"><b><u><a
                                                 href="{{route('product_items')}}?category={{$product->name}}"
                                                 title="click to view {{$product->name}} products">{{$product->name}}</a></u></b>

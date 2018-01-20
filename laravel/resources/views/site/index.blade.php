@@ -132,9 +132,8 @@
                     <div class="col-md-4 col-sm-6">
                         <div class="card">
                             <a href="#"><img
-                                        class="card-img-top"
-                                        data-src="{{asset('img/vegs.jpg')}}"
-                                        class="img-responsive"></a>
+                                        class="card-img-top img-responsive"
+                                        data-src="{{asset('img/vegs.jpg')}}"></a>
                             <div class="card-block">
                                 <h4 class="card-title text-center">Fruits</h4>
                                 <div class="card-text">
