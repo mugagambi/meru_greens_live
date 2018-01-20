@@ -37,10 +37,8 @@
             <div class="row">
                 <div class="col-lg-8">
                     <div class="cta-text">
-                        <h2>We are the best groceries <span>Company</span> in kenya</h2>
-                        @if($about_us)
-                            <p>{{$about_us->synopsis}}</p>
-                        @endif
+                        <h2>Gold is yellow ... soil is Gold</h2>
+                        <p>We are the best fruit and vegetable producer and marketer</p>
                     </div>
                 </div>
                 <div class="col-lg-4">
@@ -204,7 +202,7 @@
                         @endforeach
                     </div>
                     <div class="row">
-                        <p class="text-center"><a href="{{route('fruits')}}" class="btn btn-theme">View vegetables</a>
+                        <p class="text-center"><a href="{{route('vegs')}}" class="btn btn-theme">View vegetables</a>
                         </p>
                     </div>
                 </div>
