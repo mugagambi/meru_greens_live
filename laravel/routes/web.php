@@ -76,6 +76,8 @@ Route::group([
     Route::get('registered-users/', 'Admin\UsersController@index')->name('registered-users');
     Route::get('terms', 'Admin\TermsController@getTermsForm')->name('admin.terms');
     Route::post('terms', 'Admin\TermsController@store')->name('admin.terms.store');
+    Route::get('privacy', 'Admin\PrivacyController@getPrivacyForm')->name('admin.privacy');
+    Route::post('privacy', 'Admin\PrivacyController@store')->name('admin.privacy.store');
 });
 Route::get('/client-mailable', function () {
     $order = App\Order::find(1);

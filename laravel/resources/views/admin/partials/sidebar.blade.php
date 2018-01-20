@@ -118,8 +118,8 @@
                     <span>Terms & Conditions</span>
                 </a>
             </li>
-            <li @if($url=='jobs' ) class="active" @endif>
-                <a href="{{route('careers.index')}}">
+            <li @if($url=='privacy' ) class="active" @endif>
+                <a href="{{route('admin.privacy')}}">
                     <i class="fa fa-user-secret"></i>
                     <span>Privacy Policy</span>
                 </a>
