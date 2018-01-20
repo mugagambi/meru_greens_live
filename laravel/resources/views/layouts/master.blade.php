@@ -171,7 +171,7 @@
                         <ul class="link-list">
                             <li><a href="#">News</a></li>
                             <li><a href="{{route('terms')}}">Terms and conditions</a></li>
-                            <li><a href="#">Privacy policy</a></li>
+                            <li><a href="{{route('privacy')}}">Privacy policy</a></li>
                             <li><a href="{{route('jobs')}}">Career center</a></li>
                             <li><a href="{{route('contact')}}">Contact us</a></li>
                         </ul>

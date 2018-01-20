@@ -45,6 +45,7 @@ Route::get('/recipes', 'RecipeController@index')->name('recipes');
 Route::get('/recipes/{recipe}', 'RecipeController@recipe')->name('recipe');
 Route::get('/contact', 'IndexController@contact')->name('contact');
 Route::get('/terms', 'TersmPrivacyController@terms')->name('terms');
+Route::get('/privacy', 'TersmPrivacyController@privacy')->name('privacy');
 
 Route::get('/administrator/login', 'Admin\Auth\AdminLoginController@showLoginForm')->name('admin.login');
 Route::post('/administrator/login', 'Admin\Auth\AdminLoginController@submitLogin')->name('admin.submit-login');

@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Terms;
+use App\Privacy;
 
 class TersmPrivacyController extends Controller
 {
@@ -11,5 +11,11 @@ class TersmPrivacyController extends Controller
     {
         $terms = Terms::all()->first();
         return view('site.terms', ['terms' => $terms]);
+    }
+
+    public function privacy()
+    {
+        $privacy = Privacy::all()->first();
+        return view('site.privacy', ['privacy' => $privacy]);
     }
 }
