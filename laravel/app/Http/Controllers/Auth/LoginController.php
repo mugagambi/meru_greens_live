@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Terms;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Socialite;
 use App\User;
@@ -73,7 +74,9 @@ class LoginController extends Controller
             $name = trim($userSocial->getName());
             $last_name = (strpos($name, ' ') === false) ? '' : preg_replace('#.*\s([\w-]*)$#', '$1', $name);
             $first_name = trim(preg_replace('#' . $last_name . '#', '', $name));
-            return view('auth.register', ['first_name' => $first_name, 'last_name' => $last_name, 'email' => $userSocial->getEmail()]);
+            $terms = Terms::all()->first();
+            return view('auth.register', ['first_name' => $first_name, 'last_name' => $last_name,
+                'terms' => $terms, 'email' => $userSocial->getEmail()]);
 
         }
 
