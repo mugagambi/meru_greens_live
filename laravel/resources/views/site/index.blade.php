@@ -94,7 +94,7 @@
                         <div class="card">
                             <a href="{{route('fruits')}}"><img
                                         class="card-img-top img-responsive"
-                                        src="{{asset('img/fruits.jpg')}}"></a>
+                                        data-src="{{asset('img/fruits.jpg')}}"></a>
                             <div class="card-block">
                                 <h4 class="card-title text-center">Fruits</h4>
                                 <div class="card-text">
@@ -113,7 +113,7 @@
                         <div class="card">
                             <a href="{{route('vegs')}}"><img
                                         class="card-img-top img-responsive"
-                                        src="{{asset('img/vegs.jpg')}}"
+                                        data-src="{{asset('img/vegs.jpg')}}"
                                 ></a>
                             <div class="card-block">
                                 <h4 class="card-title text-center">Vegetables</h4>
@@ -133,7 +133,7 @@
                         <div class="card">
                             <a href="#"><img
                                         class="card-img-top"
-                                        src="{{asset('img/vegs.jpg')}}"
+                                        data-src="{{asset('img/vegs.jpg')}}"
                                         class="img-responsive"></a>
                             <div class="card-block">
                                 <h4 class="card-title text-center">Fruits</h4>
@@ -173,7 +173,7 @@
                             <a href="{{route('product_items')}}?category={{$product->name}}"
                                title="click to view {{$product->name}} products"><img
                                         class="card-img-top img-responsive"
-                                        src="{{asset('uploads/'.$product->pic)}}"></a>
+                                        data-src="{{asset('uploads/'.$product->pic)}}"></a>
                             <p class="text-center"><b><u><a
                                                 href="{{route('product_items')}}?category={{$product->name}}"
                                                 title="click to view {{$product->name}} products">{{$product->name}}</a></u></b>
@@ -197,7 +197,7 @@
                             <div class="col-sm-6 col-xs-6 col-md-2 col-lg-2">
                                 <a href="#" title="click to view {{$product->name}} products"><img
                                             class="card-img-top img-responsive"
-                                            src="{{asset('uploads/'.$product->pic)}}"></a>
+                                            data-src="{{asset('uploads/'.$product->pic)}}"></a>
                                 <p class="text-center"><b><u><a href="#"
                                                                 title="click to view {{$product->name}} products">{{$product->name}}</a></u></b>
                                 </p>

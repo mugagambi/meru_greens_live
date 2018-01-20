@@ -49,7 +49,8 @@ mix.scripts([
     '../public_html/js/uisearch.js',
     '../public_html/js/animate.js',
     '../public_html/js/custom.js',
-    '../public_html/js/contactform.js'
+    '../public_html/js/contactform.js',
+    '../public_html/js/lazyload.js'
 ], '../public_html/js/scripts.js');
 mix.scripts([
     '../public_html/admin/js/jquery.js',
