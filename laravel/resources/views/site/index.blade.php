@@ -56,7 +56,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="row">
-                        <div class="col-sm-6 col-lg-6">
+                        <div class="col-md-8 col-md-offset-2 text-center">
                             <h4>About our company</h4>
                             @if($about_us)
                                 <p>
@@ -66,13 +66,6 @@
                             @else
                                 <p>About us not updated yet.Check back later</p>
                             @endif
-                        </div>
-                        <div class="col-sm-6 col-lg-6">
-                            <h4>Welcome to our company</h4>
-                            <div class="video-container">
-                                <iframe src="https://www.youtube.com/embed/BVuM6J5hbg8">
-                                </iframe>
-                            </div>
                         </div>
                     </div>
                 </div>

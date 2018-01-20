@@ -27,7 +27,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="row">
-                            <div class="col-sm-6 col-lg-6">
+                            <div class="col-md-8 col-md-offset-2 text-center">
                                 <h4><u>Our Mission</u></h4>
                                 <p><strong>{{$about->mission}}</strong></p>
                                 <br>
@@ -36,13 +36,6 @@
                                 <br>
                                 <h4><u>Our History</u></h4>
                                 {!! $about->about_us !!}
-                            </div>
-                            <div class="col-sm-6 col-lg-6">
-                                <h4>Welcome to our company</h4>
-                                <div class="video-container">
-                                    <iframe src="https://www.youtube.com/embed/BVuM6J5hbg8">
-                                    </iframe>
-                                </div>
                             </div>
                         </div>
                     </div>
