@@ -25,8 +25,10 @@
                         {!! $csr->csr !!}
                     </div>
                 </div>
-                @else
-                <h1>Our Corporate Social Responsibility not yet updated.Check back later. </h1>
+            @else
+                <div class="container">
+                    <h5 class="text-center">Our Corporate Social Responsibility not yet updated.Check back later. </h1>
+                </div>
             @endif
         </div>
     </section>

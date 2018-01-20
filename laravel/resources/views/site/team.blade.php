@@ -56,7 +56,9 @@
                 @endforeach
             </div>
            @else
-            <h1>The team details have not been updated yet.Check back later</h1>
+            <div class="container">
+            <h5 class="text-center">The team details have not been updated yet.Check back later</h5>
+            </div>
         @endif
     </section>
 @endsection

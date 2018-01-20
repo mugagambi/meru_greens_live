@@ -48,9 +48,9 @@
                     </div>
                 </div>
             @else
-                <h1>About Us
-                    <small>Our company history,motto, mission and vision not yet updated.Check back latter</small>
-                </h1>
+            <h5 class="text-center">
+                    Our company history,motto, mission and vision not yet updated.Check back latter
+            </h5>
             @endif
         </div>
     </section>

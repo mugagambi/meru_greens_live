@@ -28,7 +28,9 @@
                     </div>
                 </div>
             @else
-                <h1>Our quality control policy not yet updated.Check back later. </h1>
+                <div class="container">
+                    <h5 class="text-center">Our quality control policy not yet updated.Check back later. </h5>
+                </div>
             @endif
         </div>
     </section>

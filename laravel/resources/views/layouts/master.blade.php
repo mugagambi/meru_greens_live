@@ -212,7 +212,7 @@
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="copyright">
-                                    <p>&copy; 2017, Meru Greens Horticulture Ltd</p>
+                                    <p>&copy; {{date("Y")}}, Meru Greens Horticulture Ltd</p>
                                 </div>
                             </div>
                             <div class="col-lg-6"><p>Developed by: <a href="#">Indevs Digital</a>
