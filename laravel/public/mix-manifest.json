@@ -1,9 +1,9 @@
 {
-    "/css/styles.css": "/css/styles.css",
-    "/admin/css/admin.css": "/admin/css/admin.css",
-    "/admin/css/admin_login.css": "/admin/css/admin_login.css",
-    "/css/cart.min.css": "/css/cart.min.css",
-    "/js/scripts.js": "/js/scripts.js",
-    "/admin/js/admin.js": "/admin/js/admin.js",
-    "/admin/js/admin_login.js": "/admin/js/admin_login.js"
+    "/home/mugambi/Documents/projects/web/meru_greens_live/public_html/css/styles.css": "/home/mugambi/Documents/projects/web/meru_greens_live/public_html/css/styles.css",
+    "/home/mugambi/Documents/projects/web/meru_greens_live/public_html/admin/css/admin.css": "/home/mugambi/Documents/projects/web/meru_greens_live/public_html/admin/css/admin.css",
+    "/home/mugambi/Documents/projects/web/meru_greens_live/public_html/admin/css/admin_login.css": "/home/mugambi/Documents/projects/web/meru_greens_live/public_html/admin/css/admin_login.css",
+    "/home/mugambi/Documents/projects/web/meru_greens_live/public_html/css/cart.min.css": "/home/mugambi/Documents/projects/web/meru_greens_live/public_html/css/cart.min.css",
+    "/home/mugambi/Documents/projects/web/meru_greens_live/public_html/js/scripts.js": "/home/mugambi/Documents/projects/web/meru_greens_live/public_html/js/scripts.js",
+    "/home/mugambi/Documents/projects/web/meru_greens_live/public_html/admin/js/admin.js": "/home/mugambi/Documents/projects/web/meru_greens_live/public_html/admin/js/admin.js",
+    "/home/mugambi/Documents/projects/web/meru_greens_live/public_html/admin/js/admin_login.js": "/home/mugambi/Documents/projects/web/meru_greens_live/public_html/admin/js/admin_login.js"
 }
