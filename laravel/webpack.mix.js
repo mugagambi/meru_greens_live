@@ -62,3 +62,6 @@ mix.scripts([
     '../public_html/admin/js/jquery.js',
     '../public_html/admin/js/bootstrap.js'
 ], '../public_html/admin/js/admin_login.js');
+mix.scripts([
+    '../public_html/js/map.js'
+],'../public_html/js/map.min.js');

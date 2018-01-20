@@ -77,29 +77,6 @@
 @endsection
 @push('scripts')
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAT51z2KB_gk0Z3LgBb5KbVBJEQ3X6ZkJ4"></script>
-    <script>
-        jQuery(document).ready(function ($) {
-
-            //Google Map
-            var get_latitude = $('#google-map').data('latitude');
-            var get_longitude = $('#google-map').data('longitude');
-
-            function initialize_google_map() {
-                var myLatlng = new google.maps.LatLng(get_latitude, get_longitude);
-                var mapOptions = {
-                    zoom: 15,
-                    scrollwheel: false,
-                    center: myLatlng
-                };
-                var map = new google.maps.Map(document.getElementById('google-map'), mapOptions);
-                var marker = new google.maps.Marker({
-                    position: myLatlng,
-                    map: map
-                });
-            }
-
-            google.maps.event.addDomListener(window, 'load', initialize_google_map);
-
-        });
+    <script src="{{asset('js/map.min.js')}}">
     </script>
 @endpush
