@@ -18,17 +18,20 @@ class AppServiceProvider extends ServiceProvider
     public function boot(UrlGenerator $url)
     {
         view()->composer(['admin.pages.mailbox.index', 'admin.partials.header', 'layouts.master'], function ($view) {
-            $messages = Contact::all();
-            $unread_count = Contact::where('read', 'false')->count();
-            $unread_messages = Contact::where('read', 'false')
-                ->orderBy('created_at', 'desc')
-                ->limit(5)
-                ->get();
-            $data = array(
-                'messages' => $messages,
-                'unread_count' => $unread_count,
-                'unread_messages' => $unread_messages,
-            );
+            $data = array();
+            if (Auth::guard('admin')->check()) {
+                $messages = Contact::all();
+                $unread_count = Contact::where('read', 'false')->count();
+                $unread_messages = Contact::where('read', 'false')
+                    ->orderBy('created_at', 'desc')
+                    ->limit(5)
+                    ->get();
+                $data += array(
+                    'messages' => $messages,
+                    'unread_count' => $unread_count,
+                    'unread_messages' => $unread_messages,
+                );
+            }
             if (Auth::check()) {
                 $cart_count = Cart::where('user_id', Auth::id())->count();
                 $data += array('cart_count' => $cart_count
