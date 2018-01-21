@@ -71,7 +71,7 @@
                 </div>
             </div>
         </div>
-        @if(!empty($services))
+        @if(!$services->isEmpty())
             <div style="background-color: #fafafa;">
                 <div class="container">
                     <div class="row">
