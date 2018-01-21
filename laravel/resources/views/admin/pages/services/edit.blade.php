@@ -1,12 +1,15 @@
 @extends('admin.layouts.main')
+@push('styles')
+    <link href="{{asset('admin/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')}}" rel="stylesheet">
+@endpush
 @section('breadcrump')
     <h1>
-        Update Slider Image
+        Update Service
     </h1>
     <ol class="breadcrumb">
         <li><a href="{{route('admin.dashboard')}}"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-        <li><a href="{{route('slider.index')}}"><i class="fa fa-users"></i> Slider Images</a></li>
-        <li class="active">Update Slider Image</li>
+        <li><a href="{{route('services.index')}}"><i class="fa fa-users"></i> Services</a></li>
+        <li class="active">Update Service</li>
     </ol>
 @endsection
 @section('content')
@@ -15,12 +18,12 @@
             <!-- Horizontal Form -->
             <div class="box box-info">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Update Slider Image</h3>
+                    <h3 class="box-title">Update Service</h3>
                 </div>
                 <!-- /.box-header -->
                 <!-- form start -->
                 <form class="form-horizontal" method="POST"
-                      action="{{route('slider.update', ['couresel' => $slider->id])}}"
+                      action="{{route('services.update', ['service' => $service->id])}}"
                       enctype="multipart/form-data">
                     {{csrf_field()}}
                     <input name="_method" type="hidden" value="PUT">
@@ -46,38 +49,41 @@
                             </div><br/>
                         @endif
                         <div class="form-group">
-                            <label for="inputTitle" class="col-sm-2 control-label">Title</label>
+                            <label for="Name" class="col-sm-2 control-label">Name</label>
 
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" name="title" id="inputTitle"
-                                       value="{{ $slider->title }}"
-                                       placeholder="Slider Title">
+                                <input type="text" class="form-control" name="name" id="Name"
+                                       value="{{ $service->name }}"
+                                       placeholder="Service Name">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="inputPic" class="col-sm-2 control-label">Image</label>
+                            <label for="inputPic" class="col-sm-2 control-label">Featured Image</label>
 
                             <div class="col-sm-10">
-                                <input type="file" name="image"
-                                       value="{{ old('image') }}"
+                                <input type="file" name="featured_image"
+                                       value="{{ old('featured_image') }}"
                                        id="inputPic">
-                                <p><b>Previous Image </b><a href="{{asset('uploads').'/'.$slider->image}}">
-                                        {{$slider->image}}</a></p>
+                                <p><b>Previous featured image: </b><a
+                                            href="{{asset('storage/'.$service->featured_image)}}">view image</a></p>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="inputTitle" class="col-sm-2 control-label">Short description</label>
+                            <label for="inputTitle" class="col-sm-2 control-label">Short Synopsis</label>
 
                             <div class="col-sm-10">
                                     <textarea class="form-control" rows="3"
-                                              placeholder="Description"
-                                              name="short_synopsis">{{ $slider->short_synopsis }}</textarea>
+                                              placeholder="Synopsis"
+                                              name="synopsis">{{ $service->synopsis }}</textarea>
+                                <p class="help-block">max characters 200</p>
                             </div>
                         </div>
+                        <textarea class="textarea" placeholder="add full description" name="description"
+                                  style="width: 100%; height: 400px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{{$service->description}}</textarea>
                     </div>
                     <!-- /.box-body -->
                     <div class="box-footer">
-                        <a href="{{route('slider.index')}}" class="btn btn-default">Cancel</a>
+                        <a href="{{route('services.index')}}" class="btn btn-default">Cancel</a>
                         <button type="submit" class="btn btn-success pull-right">update Item</button>
                     </div>
                     <!-- /.box-footer -->
@@ -87,3 +93,9 @@
         </div>
     </div>
 @endsection
+@push('scripts')
+    <script src="{{asset('admin/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js')}}"></script>
+    <script>
+        $('.textarea').wysihtml5()
+    </script>
+@endpush
