@@ -37,9 +37,9 @@ class ServicesController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request,[
+        $this->validate($request, [
             'name' => 'required|max:50',
-            'featured_image' => 'image|mimes:jpeg,png,jpg|max:2048',
+            'featured_image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
             'synopsis' => 'required|max:200',
             'description' => 'required'
         ]);
@@ -53,17 +53,6 @@ class ServicesController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\Service $service
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Service $service)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Service $service
@@ -71,7 +60,7 @@ class ServicesController extends Controller
      */
     public function edit(Service $service)
     {
-        //
+        return view('admin.pages.services.edit', ['url' => 'services', 'service' => $service]);
     }
 
     /**
@@ -83,17 +72,34 @@ class ServicesController extends Controller
      */
     public function update(Request $request, Service $service)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required|max:50',
+            'featured_image' => 'image|mimes:jpeg,png,jpg|max:2048',
+            'synopsis' => 'required|max:200',
+            'description' => 'required'
+        ]);
+        if ($request->hasFile('featured_image')) {
+            \Storage::disk('public')->delete($service->featured_image);
+            $service->featured_image = $request->file('featured_image')->store('services', 'public');
+        }
+        $service->name = $request->input('name');
+        $service->synopsis = $request->input('synopsis');
+        $service->description = $request->input('description');
+        $service->save();
+        return redirect(route('services.index'))->with('success', 'Service updated successfully');
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  \App\Service $service
+     * @throws \Exception
      * @return \Illuminate\Http\Response
      */
     public function destroy(Service $service)
     {
-        //
+        \Storage::disk('public')->delete($service->featured_image);
+        $service->delete();
+        return redirect(route('services.index'))->with('success', 'removed service successfully');
     }
 }

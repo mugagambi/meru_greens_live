@@ -71,79 +71,44 @@
                 </div>
             </div>
         </div>
-        <div style="background-color: #fafafa;">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="text-center">
-                            <h1>Our Services</h1>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4 col-sm-6">
-                        <div class="card">
-                            <a href="{{route('fruits')}}"><img
-                                        class="card-img-top img-responsive"
-                                        data-src="{{asset('img/fruits.jpg')}}"></a>
-                            <div class="card-block">
-                                <h4 class="card-title text-center">Fruits</h4>
-                                <div class="card-text">
-                                    We export fruits and produce fruits all year to international markets
-                                </div>
-                            </div>
-                            <div class="card-footer text-center">
-                                <p>
-                                    <a class="btn btn-theme"
-                                       href="{{route('fruits')}}">View Fruits</a>
-                                </p>
+        @if(!empty($services))
+            <div style="background-color: #fafafa;">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="text-center">
+                                <h1>Our Services</h1>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 col-sm-6">
-                        <div class="card">
-                            <a href="{{route('vegs')}}"><img
-                                        class="card-img-top img-responsive"
-                                        data-src="{{asset('img/vegs.jpg')}}"
-                                ></a>
-                            <div class="card-block">
-                                <h4 class="card-title text-center">Vegetables</h4>
-                                <div class="card-text">
-                                    We export fruits and produce fruits all year to international markets
+                    <div class="row">
+                        @foreach($services as $service)
+                            <div class="col-md-4 col-sm-6">
+                                <div class="card">
+                                    <img
+                                            class="card-img-top img-responsive"
+                                            data-src="{{asset('storage/'.$service->featured_image)}}">
+                                    <div class="card-block">
+                                        <h4 class="card-title text-center">{{$service->name}}</h4>
+                                        <div class="card-text">
+                                            {{$service->synopsis}}
+                                        </div>
+                                    </div>
+                                    <div class="card-footer text-center">
+                                        <p>
+                                            <a class="btn btn-theme"
+                                               href="#">Read more</a>
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="card-footer text-center">
-                                <p>
-                                    <a class="btn btn-theme"
-                                       href="{{route('vegs')}}">View Fruits</a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6">
-                        <div class="card">
-                            <a href="#"><img
-                                        class="card-img-top img-responsive"
-                                        data-src="{{asset('img/vegs.jpg')}}"></a>
-                            <div class="card-block">
-                                <h4 class="card-title text-center">Fruits</h4>
-                                <div class="card-text">
-                                    We export fruits and produce fruits all year to international markets
-                                </div>
-                            </div>
-                            <div class="card-footer text-center">
-                                <p>
-                                    <a class="btn btn-theme"
-                                       href="{{route('fruits')}}">View Fruits</a>
-                                </p>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
-        </div>
+        @endif
 
-        <!-- divider -->
+    <!-- divider -->
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
