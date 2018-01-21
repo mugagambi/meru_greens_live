@@ -1,12 +1,15 @@
 @extends('admin.layouts.main')
+@push('styles')
+    <link href="{{asset('admin/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')}}" rel="stylesheet">
+@endpush
 @section('breadcrump')
     <h1>
-        Add Slider Image
+        Add Service
     </h1>
     <ol class="breadcrumb">
         <li><a href="{{route('admin.dashboard')}}"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-        <li><a href="{{route('slider.index')}}"><i class="fa fa-users"></i> Slider Images</a></li>
-        <li class="active">Add Slider Image</li>
+        <li><a href="{{route('services.index')}}"><i class="fa fa-users"></i> Services</a></li>
+        <li class="active">Add Service</li>
     </ol>
 @endsection
 @section('content')
@@ -15,11 +18,11 @@
             <!-- Horizontal Form -->
             <div class="box box-info">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Add Slider Image</h3>
+                    <h3 class="box-title">Add Service</h3>
                 </div>
                 <!-- /.box-header -->
                 <!-- form start -->
-                <form class="form-horizontal" method="POST" action="{{route('slider.store')}}"
+                <form class="form-horizontal" method="POST" action="{{route('services.store')}}"
                       enctype="multipart/form-data">
                     {{csrf_field()}}
                     <div class="box-body">
@@ -44,37 +47,40 @@
                             </div><br/>
                         @endif
                         <div class="form-group">
-                            <label for="inputTitle" class="col-sm-2 control-label">Title</label>
+                            <label for="Name" class="col-sm-2 control-label">Name</label>
 
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" name="title" id="inputTitle"
-                                       value="{{ old('title') }}"
-                                       placeholder="Slider Title">
+                                <input type="text" class="form-control" name="name" id="Name"
+                                       value="{{ old('name') }}"
+                                       placeholder="Service Name">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="inputPic" class="col-sm-2 control-label">Image</label>
+                            <label for="inputPic" class="col-sm-2 control-label">Featured Image</label>
 
                             <div class="col-sm-10">
-                                <input type="file" name="image"
-                                       value="{{ old('image') }}"
+                                <input type="file" name="featured_image"
+                                       value="{{ old('featured_image') }}"
                                        id="inputPic">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="inputTitle" class="col-sm-2 control-label">Short description</label>
+                            <label for="inputTitle" class="col-sm-2 control-label">Short Synopsis</label>
 
                             <div class="col-sm-10">
                                     <textarea class="form-control" rows="3"
-                                              placeholder="Description"
-                                              name="short_synopsis">{{ old('short_synopsis') }}</textarea>
+                                              placeholder="Synopsis"
+                                              name="synopsis">{{ old('synopsis') }}</textarea>
+                                <p class="help-block">max characters 200</p>
                             </div>
                         </div>
+                        <textarea class="textarea" placeholder="add full description" name="description"
+                                  style="width: 100%; height: 400px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
                     </div>
                     <!-- /.box-body -->
                     <div class="box-footer">
-                        <a href="{{route('slider.index')}}" class="btn btn-default">Cancel</a>
-                        <button type="submit" class="btn btn-success pull-right">Add Item</button>
+                        <a href="{{route('services.index')}}" class="btn btn-default">Cancel</a>
+                        <button type="submit" class="btn btn-success pull-right">Add Service</button>
                     </div>
                     <!-- /.box-footer -->
                 </form>
@@ -83,3 +89,9 @@
         </div>
     </div>
 @endsection
+@push('scripts')
+    <script src="{{asset('admin/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js')}}"></script>
+    <script>
+        $('.textarea').wysihtml5()
+    </script>
+@endpush

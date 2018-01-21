@@ -26,7 +26,7 @@ class ServicesController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.pages.services.create', ['url' => 'services']);
     }
 
     /**
@@ -37,7 +37,19 @@ class ServicesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'name' => 'required|max:50',
+            'featured_image' => 'image|mimes:jpeg,png,jpg|max:2048',
+            'synopsis' => 'required|max:200',
+            'description' => 'required'
+        ]);
+        Service::create([
+            'name' => $request->input('name'),
+            'featured_image' => $request->file('featured_image')->store('services', 'public'),
+            'synopsis' => $request->input('synopsis'),
+            'description' => $request->input('description')
+        ]);
+        return redirect(route('services.index'))->with('success', 'Service added successfully');
     }
 
     /**
