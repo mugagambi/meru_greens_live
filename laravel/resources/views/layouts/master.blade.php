@@ -85,7 +85,7 @@
                             <a href="#" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown"
                                data-delay="0" data-close-others="false">About Us <i class="fa fa-angle-down"></i></a>
                             <ul class="dropdown-menu">
-                                <li><a href="{{route('about')}}">Our history, mission and vision</a></li>
+                                <li><a href="{{route('about')}}">About Us, mission and vision</a></li>
                                 <li><a href="{{route('team')}}">Our Team</a></li>
                                 <li><a href="{{route('csr')}}">Our Corporate Social Responsibility</a></li>
                             </ul>
