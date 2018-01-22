@@ -95,9 +95,9 @@
                             <a href="#" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown"
                                data-delay="0" data-close-others="false">Products <i class="fa fa-angle-down"></i></a>
                             <ul class="dropdown-menu">
-                                <li><a href="{{route('fruits')}}">Fruits</a></li>
-                                <li><a href="{{route('vegs')}}">vegetables</a></li>
-                                <li><a href="{{route('others')}}">Others</a></li>
+                                <li><a href="{{route('product-category',['category' => 'fruits'])}}">Fruits</a></li>
+                                <li><a href="{{route('product-category',['category' => 'vegetables'])}}">vegetables</a></li>
+                                <li><a href="{{route('product-category',['category' => 'others'])}}">Others</a></li>
                             </ul>
 
                         </li>
@@ -183,9 +183,9 @@
                         <h4>Pages</h4>
                         <ul class="link-list">
                             <li><a href="{{route('products')}}">Products</a></li>
-                            <li><a href="{{route('fruits')}}">Fruits</a></li>
-                            <li><a href="{{route('vegs')}}">Vegetables</a></li>
-                            <li><a href="{{route('others')}}">Other Categories</a></li>
+                            <li><a href="{{route('product-category',['category' => 'fruits'])}}">Fruits</a></li>
+                            <li><a href="{{route('product-category',['category' => 'vegetables'])}}">Vegetables</a></li>
+                            <li><a href="{{route('product-category',['category' => 'others'])}}">Other Categories</a></li>
                         </ul>
                     </div>
                 </div>

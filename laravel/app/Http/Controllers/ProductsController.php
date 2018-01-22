@@ -38,6 +38,7 @@ class ProductsController extends Controller
         $sub = SubCategory::where('category', 'Vegetables')->get();
         return view('site.vegs', ['subs' => $sub]);
     }
+
     public function others()
     {
         $sub = SubCategory::where('category', 'Others')->get();
@@ -50,18 +51,26 @@ class ProductsController extends Controller
         return view('site.products', ['url' => 'products', 'product' => $product]);
     }
 
-    public function product_items(Request $request)
+    public function product_items($category)
     {
-        if ($request->filled('category')) {
-            $cat = SubCategory::where('name', $request->query('category'))->first();
-            return view('site.products', ['cat' => $cat]);
+        if ($category == 'fruits') {
+            $products = Product::where('category', 'Fruits')->get();
+            return view('site.products', ['products' => $products, 'cat' => 'fruits']);
+        } elseif ($category == 'vegetables') {
+            $products = Product::where('category', 'Vegetables')->get();
+            return view('site.products', ['products' => $products, 'cat' => 'vegetables']);
+        } elseif ($category == 'others') {
+            $products = Product::where('category', 'Others')->get();
+            return view('site.products', ['products' => $products, 'cat' => 'others']);
+        } else {
+            abort(404, 'Products with that category not found');
         }
         return view('site.all-products')->with('success', 'You need to give a category on the query string');
     }
 
-    public function product($product_id)
+    public function product($slug)
     {
-        $product = Product::find($product_id);
+        $product = Product::where('slug',$slug)->first();
         return view('site.product', ['product' => $product]);
     }
 

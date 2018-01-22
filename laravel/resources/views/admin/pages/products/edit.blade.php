@@ -69,11 +69,15 @@
                             <label for="inputPic" class="col-sm-2 control-label">Sub Category</label>
                             <div class="col-sm-10">
                                 <select class="form-control select2" name="category">
-                                    @foreach($categories as $main)
-                                        <option value="{{$main->id}}"
-                                                {{ ($main->id == $product->sub_category->id) ? 'selected="selected"' : '' }}>
-                                            {{$main->name }} </option>
-                                    @endforeach
+                                    <option value="Fruits" {{ ($product->category == 'Fruits') ? 'selected="selected"' : '' }}>
+                                        Fruits
+                                    </option>
+                                    <option value="Vegetables" {{ ($product->category == 'Vegetables') ? 'selected="selected"' : '' }}>
+                                        Vegetables
+                                    </option>
+                                    <option value="Others" {{ ($product->category == 'Others') ? 'selected="selected"' : '' }}>
+                                        Others
+                                    </option>
                                 </select>
                             </div>
                         </div>

@@ -36,7 +36,7 @@
                         <thead>
                         <tr>
                             <th>Name</th>
-                            <th>Sub Category</th>
+                            <th>Category</th>
                             <th>Action</th>
                         </tr>
                         </thead>
@@ -45,7 +45,7 @@
                             <tr>
                                 <td>{{$product->name}}</td>
 
-                                <td>{{$product->sub_category->name}}</td>
+                                <td>{{$product->category}}</td>
                                 <td>
                                     <div class="row">
                                         <div class="col-md-6">
@@ -73,7 +73,7 @@
                         <tfoot>
                         <tr>
                             <th>Name</th>
-                            <th>Sub Category</th>
+                            <th>Category</th>
                             <th>Action</th>
                         </tr>
                         </tfoot>
@@ -108,5 +108,4 @@
             return confirm("Delete this product?")
         }
     </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
 @endpush

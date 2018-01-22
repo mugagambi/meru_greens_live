@@ -18,10 +18,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $categories = SubCategory::all();
         $products = Product::all();
-        return view('admin.pages.products.index', ['products' => $products, 'url' => 'products',
-            'categories' => $categories]);
+        return view('admin.pages.products.index', ['products' => $products, 'url' => 'products']);
     }
 
     /**
@@ -31,8 +29,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $categories = SubCategory::all();
-        return view('admin.pages.products.create', ['url' => 'products', 'categories' => $categories]);
+        return view('admin.pages.products.create', ['url' => 'products']);
 
     }
 
@@ -64,7 +61,7 @@ class ProductController extends Controller
         $product = Product::create([
             'name' => $data['name'],
             'description' => $data['description'],
-            'subcategory_id' => $data['category']
+            'category' => $data['category']
         ]);
         $product->images()->saveMany($images);
         $request->session()->flash('success', 'Product added successfully');
@@ -79,9 +76,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        $categories = SubCategory::all();
-        return view('admin.pages.products.edit', ['product' => $product, 'url' => 'products',
-            'categories' => $categories]);
+        return view('admin.pages.products.edit', ['product' => $product, 'url' => 'products']);
     }
 
     /**
@@ -101,7 +96,7 @@ class ProductController extends Controller
         ]);
         $product->name = $request->input('name');
         $product->description = $request->input('description');
-        $product->subcategory_id = $request->input('category');
+        $product->category = $request->input('category');
         $product->save();
         if ($request->has('pic')) {
             $images = collect($request->pic)->transform(function ($pic) {
@@ -133,7 +128,7 @@ class ProductController extends Controller
     public function destroyImage($product, $image)
     {
         $image = ProductImage::find($image);
-        Storage::delete('uploads/' . $image->image);
+        \Storage::delete('uploads/' . $image->image);
         $image->delete();
         return redirect(route('products.edit', ['product' => $product]))->with('success', 'Image removed
         successfully');

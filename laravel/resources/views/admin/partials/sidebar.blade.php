@@ -82,12 +82,6 @@
                     <span>Front Page Image Slider</span>
                 </a>
             </li>
-            <li @if($url=='sub-category' ) class="active" @endif>
-                <a href="{{route('sub-category.index')}}">
-                    <i class="fa fa-th-list"></i>
-                    <span>Sub Categories</span>
-                </a>
-            </li>
             <li @if($url=='products' ) class="active" @endif>
                 <a href="{{route('products.index')}}">
                     <i class="fa fa-suitcase"></i>

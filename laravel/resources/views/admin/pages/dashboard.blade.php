@@ -46,22 +46,6 @@
             <!-- ./col -->
             <div class="col-lg-3 col-xs-6">
                 <!-- small box -->
-                <div class="small-box bg-red">
-                    <div class="inner">
-                        <h3>{{$total_subs}}</h3>
-
-                        <p>Total Sub Categories</p>
-                    </div>
-                    <div class="icon">
-                        <i class="ion ion-pie-graph"></i>
-                    </div>
-                    <a href="{{route('sub-category.index')}}" class="small-box-footer">view all sub categories <i
-                                class="fa fa-arrow-circle-right"></i></a>
-                </div>
-            </div>
-            <!-- ./col -->
-            <div class="col-lg-3 col-xs-6">
-                <!-- small box -->
                 <div class="small-box bg-yellow">
                     <div class="inner">
                         <h3>{{$total_users}}</h3>
@@ -165,7 +149,7 @@
                                     <div class="product-info">
                                         <a href="{{route('products.edit', ['product' => $product->id])}}"
                                            class="product-title">{{$product->name}}
-                                            <span class="label label-success pull-right">{{$product->sub_category->category}}</span></a>
+                                            <span class="label label-success pull-right">{{$product->category}}</span></a>
                                         <span class="product-description">
                           {{str_limit($product->description,70)}}
                         </span>

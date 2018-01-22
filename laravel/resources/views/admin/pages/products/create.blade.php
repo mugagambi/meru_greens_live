@@ -64,15 +64,13 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="inputPic" class="col-sm-2 control-label">Sub Category</label>
+                            <label for="inputPic" class="col-sm-2 control-label">Category</label>
                             <div class="col-sm-10">
                                 <select class="form-control select2" name="category">
-                                    @foreach($categories as $main)
-                                        <option value="{{$main->id}}">{{$main->name}}</option>
-                                    @endforeach
+                                    <option value="Fruits">Fruits</option>
+                                    <option value="Vegetables">Vegetables</option>
+                                    <option value="Other">Other</option>
                                 </select>
-                                <p class="text-center"><a href="{{route('sub-category.create')}}">add a sub
-                                        category</a></p>
                             </div>
                         </div>
                         <div class="form-group">

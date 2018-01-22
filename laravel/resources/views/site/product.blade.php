@@ -42,17 +42,6 @@
                 <div class="col-md-6">
                     <h3 class="text-center">{{$product->name}}</h3>
                     <br>
-                    <div class="text-center">
-                        @if($product->sub_category->category == 'Fruits')
-                            <a href="{{route('fruits')}}"><span
-                                        class="label label-success">{{$product->sub_category->category}}</span></a>
-                        @elseif($product->sub_category->category == 'Vegetables')
-                            <a href="{{route('vegs')}}"><span
-                                        class="label label-success">{{$product->sub_category->category}}</span></a>
-                        @endif
-                        <a href="{{route('product_items')}}?category={{$product->sub_category->name}}"><span
-                                    class="label label-success">{{$product->sub_category->name}}</span></a>
-                    </div>
                     <hr>
                     <p>
                         {{$product->description}}

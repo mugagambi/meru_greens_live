@@ -6,18 +6,20 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
+    public static function boot()
+    {
+        parent::boot();
+
+        static::saving(function ($model) {
+            $string = $model->name . '-' . time();
+            $model->slug = str_slug($string);
+        });
+    }
+
     /**
      * @var array
      */
-    protected $fillable = ['name', 'description', 'subcategory_id'];
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function sub_category()
-    {
-        return $this->belongsTo('App\SubCategory', 'subcategory_id');
-    }
+    protected $fillable = ['name', 'description', 'category'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
