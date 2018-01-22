@@ -79,7 +79,6 @@ class RecipesController extends Controller
             'featured_image' => $request->file('image')->store('recipes', 'public')
         ]);
         $recipe->ingredients()->saveMany($ingredients);
-        $recipe->procedures()->saveMany($procedures);
         $recipe->images()->saveMany($images);
         $request->session()->flash('success', 'Recipe added successfully');
         return redirect(route('recipes.index'));
