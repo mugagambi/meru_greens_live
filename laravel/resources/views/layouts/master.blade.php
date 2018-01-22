@@ -30,7 +30,7 @@
     @stack('styles')
 </head>
 
-<body>
+<body style="background-color: #90ee90!important">
 
 
 <div id="wrapper">

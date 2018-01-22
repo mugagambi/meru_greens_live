@@ -18,7 +18,7 @@
     </section>
 @endsection
 @section('content')
-    <section id="content">
+    <section id="content" style="background-color: #90ee90;">
         @if(!$subs->isEmpty())
             <div class="container">
                 <h1 class="text-center">Fruits</h1>
