@@ -62,6 +62,7 @@
                                 <p>
                                     {{$about_us->synopsis}}
                                 </p>
+
                                 <a href="{{route('about')}}" class="btn btn-theme">Read More About Us</a>
                             @else
                                 <p>About us not updated yet.Check back later</p>
@@ -146,13 +147,15 @@
                 <div class="row">
                     @foreach($fruits as $product)
                         <div class="col-sm-6 col-xs-6 col-md-2 col-lg-2">
-                            <a href="{{route('product_items')}}?category={{$product->name}}"
-                               title="click to view {{$product->name}} products"><img
+                            <a href="{{route('product_items')}}?category={{$product->name}}"><img
                                         class="card-img-top img-responsive"
                                         data-src="{{asset('uploads/'.$product->pic)}}"></a>
-                            <p class="text-center"><b><u><a
-                                                href="{{route('product_items')}}?category={{$product->name}}"
-                                                title="click to view {{$product->name}} products">{{$product->name}}</a></u></b>
+                            <p class="text-center"><b>{{$product->name}}</b>
+                            </p>
+                            <p class="text-center">
+                                <a class="btn btn-theme btn-small text-center"
+                                   href="{{route('product_items')}}?category={{$product->name}}">view products
+                                </a>
                             </p>
                         </div>
                     @endforeach
