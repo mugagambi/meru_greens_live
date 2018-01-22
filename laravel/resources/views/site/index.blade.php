@@ -154,7 +154,7 @@
                             </p>
                             <p class="text-center">
                                 <a
-                                   href="{{route('product_items')}}?category={{$product->name}}">view products
+                                        href="{{route('product_items')}}?category={{$product->name}}">view products
                                 </a>
                             </p>
                         </div>
@@ -177,8 +177,12 @@
                                 <a href="#" title="click to view {{$product->name}} products"><img
                                             class="card-img-top img-responsive"
                                             data-src="{{asset('uploads/'.$product->pic)}}"></a>
-                                <p class="text-center"><b><u><a href="#"
-                                                                title="click to view {{$product->name}} products">{{$product->name}}</a></u></b>
+                                <p class="text-center"><b>{{$product->name}}</b>
+                                </p>
+                                <p class="text-center">
+                                    <a
+                                            href="{{route('product_items')}}?category={{$product->name}}">view products
+                                    </a>
                                 </p>
                             </div>
                         @endforeach
