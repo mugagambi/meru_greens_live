@@ -26,12 +26,12 @@
                     @foreach($fruits as $product)
                         <div class="col-sm-6 col-xs-6 col-md-2 col-lg-2">
                             <a href="{{route('product_items')}}?category={{$product->name}}"
-                               title="click to view {{$product->name}} products"><img
+                               ><img
                                         class="card-img-top img-responsive"
                                         data-src="{{asset('uploads/'.$product->pic)}}"></a>
                             <p class="text-center"><b><u><a
                                                 href="{{route('product_items')}}?category={{$product->name}}"
-                                                title="click to view {{$product->name}} products">{{$product->name}}</a></u></b>
+                                                >{{$product->name}}</a></u></b>
                             </p>
                         </div>
                     @endforeach
@@ -60,12 +60,12 @@
                     @foreach($vegs as $product)
                         <div class="col-sm-6 col-xs-6 col-md-2 col-lg-2">
                             <a href="{{route('product_items')}}?category={{$product->name}}"
-                               title="click to view {{$product->name}} products"><img
+                               ><img
                                         class="card-img-top img-responsive"
                                         data-src="{{asset('uploads/'.$product->pic)}}"></a>
                             <p class="text-center"><b><u><a
                                                 href="{{route('product_items')}}?category={{$product->name}}"
-                                                title="click to view {{$product->name}} products">{{$product->name}}</a></u></b>
+                                                >{{$product->name}}</a></u></b>
                             </p>
                         </div>
                     @endforeach
@@ -95,12 +95,12 @@
                     @foreach($others as $product)
                         <div class="col-sm-6 col-xs-6 col-md-2 col-lg-2">
                             <a href="{{route('product_items')}}?category={{$product->name}}"
-                               title="click to view {{$product->name}} products"><img
+                               ><img
                                         class="card-img-top img-responsive"
                                         data-src="{{asset('uploads/'.$product->pic)}}"></a>
                             <p class="text-center"><b><u><a
                                                 href="{{route('product_items')}}?category={{$product->name}}"
-                                                title="click to view {{$product->name}} products">{{$product->name}}</a></u></b>
+                                                >{{$product->name}}</a></u></b>
                             </p>
                         </div>
                     @endforeach

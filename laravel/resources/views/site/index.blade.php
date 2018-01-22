@@ -174,7 +174,7 @@
                     <div class="row">
                         @foreach($vegs as $product)
                             <div class="col-sm-6 col-xs-6 col-md-2 col-lg-2">
-                                <a href="#" title="click to view {{$product->name}} products"><img
+                                <a href="#" ><img
                                             class="card-img-top img-responsive"
                                             data-src="{{asset('uploads/'.$product->pic)}}"></a>
                                 <p class="text-center"><b>{{$product->name}}</b>
