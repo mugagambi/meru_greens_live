@@ -153,7 +153,7 @@
                             <p class="text-center"><b>{{$product->name}}</b>
                             </p>
                             <p class="text-center">
-                                <a class="btn btn-theme btn-small text-center"
+                                <a
                                    href="{{route('product_items')}}?category={{$product->name}}">view products
                                 </a>
                             </p>
