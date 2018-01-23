@@ -29,7 +29,7 @@ Route::get('/csr', 'AboutUsController@csr')->name('csr');
 Route::get('/quality-control', 'AboutUsController@quality_control')->name('quality-control');
 Route::get('/products', 'ProductsController@all_products')->name('products');
 Route::get('/cart', 'ProductsController@shopping_cart')->name('cart')->middleware('auth');
-Route::get('/add-to-cart', 'ProductsController@add_to_cart')->name('add_to_cart')->middleware('auth');
+Route::get('/add-to-cart/{id}', 'ProductsController@add_to_cart')->name('add_to_cart');
 Route::delete('/remove_from_cart/{item}', 'ProductsController@remove_from_cart')->name('remove_from_cart')->middleware('auth');
 Route::get('/products/category/{category}', 'ProductsController@product_items')->name('product-category');
 Route::get('/product/{slug}', 'ProductsController@product')->name('product');

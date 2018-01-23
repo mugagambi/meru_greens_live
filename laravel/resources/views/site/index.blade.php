@@ -166,17 +166,9 @@
                                     <div class="row">
                                         <div class="col-md-6 text-center">
                                             <p>
-                                                @if(Auth::check())
-                                                    <a class="btn btn-theme"
-                                                       href="{{route('add_to_cart')}}?product={{$product->id}}">Order
-                                                        now</a>
-                                                @else
-                                                    <button type="button" class="btn btn-theme"
-                                                            data-toggle="modal"
-                                                            data-target="#cartModal">Order
-                                                        now
-                                                    </button>
-                                                @endif
+                                                <a class="btn btn-theme"
+                                                   href="{{route('add_to_cart', ['id' => $product->id])}}">Order
+                                                    now</a>
                                             </p>
                                         </div>
                                         <div class="col-md-6 text-center">
@@ -227,17 +219,9 @@
                                         <div class="row">
                                             <div class="col-md-6 text-center">
                                                 <p>
-                                                    @if(Auth::check())
-                                                        <a class="btn btn-theme"
-                                                           href="{{route('add_to_cart')}}?product={{$product->id}}">Order
-                                                            now</a>
-                                                    @else
-                                                        <button type="button" class="btn btn-theme"
-                                                                data-toggle="modal"
-                                                                data-target="#cartModal">Order
-                                                            now
-                                                        </button>
-                                                    @endif
+                                                    <a class="btn btn-theme"
+                                                       href="{{route('add_to_cart', ['id' => $product->id])}}">Order
+                                                        now</a>
                                                 </p>
                                             </div>
                                             <div class="col-md-6 text-center">
@@ -255,7 +239,8 @@
                         @endforeach
                     </div>
                     <div class="row">
-                        <p class="text-center"><a href="{{route('product-category',['category' => 'fruits'])}}" class="btn btn-theme">View vegetables</a>
+                        <p class="text-center"><a href="{{route('product-category',['category' => 'fruits'])}}"
+                                                  class="btn btn-theme">View vegetables</a>
                         </p>
                     </div>
                 </div>

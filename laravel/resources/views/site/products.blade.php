@@ -62,17 +62,9 @@
                                             <div class="row">
                                                 <div class="col-md-6 text-center">
                                                     <p>
-                                                        @if(Auth::check())
-                                                            <a class="btn btn-theme"
-                                                               href="{{route('add_to_cart')}}?product={{$product->id}}">Order
-                                                                now</a>
-                                                        @else
-                                                            <button type="button" class="btn btn-theme"
-                                                                    data-toggle="modal"
-                                                                    data-target="#cartModal">Order
-                                                                now
-                                                            </button>
-                                                        @endif
+                                                        <a class="btn btn-theme"
+                                                           href="{{route('add_to_cart', ['id' => $product->id])}}">Order
+                                                            now</a>
                                                     </p>
                                                 </div>
                                                 <div class="col-md-6 text-center">
@@ -100,11 +92,12 @@
         </div>
     </section>
     <div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                                 aria-hidden="true">&times;</span></button>
+                    <p class="text-center"><b>Order</b></p>
                 </div>
                 <div class="modal-body">
                     <div class="row">

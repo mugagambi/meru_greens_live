@@ -70,7 +70,7 @@ class ProductsController extends Controller
 
     public function product($slug)
     {
-        $product = Product::where('slug',$slug)->first();
+        $product = Product::where('slug', $slug)->first();
         return view('site.product', ['product' => $product]);
     }
 
@@ -80,16 +80,14 @@ class ProductsController extends Controller
         return view('site.cart', ['cart' => $cart]);
     }
 
-    public function add_to_cart(Request $request)
+    public function add_to_cart(Request $request, $id)
     {
-        $product_id = $request->query('product');
-        Cart::create([
-            'user_id' => Auth::id(),
-            'product_id' => $product_id,
-            'quantity' => 1,
-            'added_on' => Carbon::now()
-        ]);
-        return redirect(route('cart'));
+        $product = Product::find($id);
+        $oldCart = \Session::has('cart') ? \Session::get('cart') : null;
+        $cart = new Cart($oldCart);
+        $cart->add($product, $product->id);
+        $request->session()->put('cart', $cart);
+        return back();
     }
 
     /**
