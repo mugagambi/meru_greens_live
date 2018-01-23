@@ -27,6 +27,15 @@
                     <strong>Success!</strong> {{Session::get('order-received')}}
                 </div>
             @endif
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             @if(Session::has('cart'))
                 <div class="row">
                     <div class="col-sm-6 col-sm-offset-3">
@@ -38,7 +47,10 @@
                                     <button type="button" class="btn btn-primary btn-xs dropdown-toggle"
                                             data-toggle="dropdown">Action <span class="caret"></span></button>
                                     <ul class="dropdown-menu">
-                                        <li><a href="#">Change No. of Kgs</a></li>
+                                        <li><a href="#" data-toggle="modal" data-target="#myModal"
+                                               data-id="{{$product['item']['id']}}"
+                                               data-name="{{$product['item']['name']}}">Change No. of Kgs</a>
+                                        </li>
                                         <li><a href="{{route('remove_from_cart',['item' => $product['item']['id']])}}">Remove
                                                 item from cart</a></li>
                                     </ul>
@@ -69,15 +81,16 @@
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                                 aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Change Quantity</h4>
+                    <h4 class="modal-title" id="myModalLabel"></h4>
                 </div>
                 <div class="modal-body">
-                    <form class="form-inline">
+                    <form class="form-inline" method="post" action="{{route('updateQty')}}">
                         {{ csrf_field() }}
+                        <input type="hidden" id="product_id" name="product_id">
                         <div class="form-group">
-                            <label for="exampleInputEmail2">Quantity</label>
-                            <input type="number" class="form-control" id="exampleInputEmail2"
-                                   placeholder="Number of items to order" value="1">
+                            <label for="exampleInputEmail2">Kgs</label>
+                            <input type="number" name="amount" class="form-control" id="exampleInputEmail2"
+                                   placeholder="Number of kilos to order">
                         </div>
                         <button type="submit" class="btn btn-theme">Update</button>
                     </form>
@@ -89,10 +102,3 @@
         </div>
     </div>
 @endsection
-@push('scripts')
-    <script type="text/javascript">
-        function ConfirmDelete() {
-            return confirm("Remove this item from the cart?")
-        }
-    </script>
-@endpush

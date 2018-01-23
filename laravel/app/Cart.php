@@ -39,4 +39,9 @@ class Cart
     {
         unset($this->items[$id]);
     }
+
+    public function update($id, $qty)
+    {
+        $this->items[$id]['qty'] = $qty;
+    }
 }

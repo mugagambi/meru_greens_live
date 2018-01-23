@@ -163,4 +163,19 @@ class ProductsController extends Controller
         $request->session()->forget('cart');
         return back()->with('order-received', 'Cart Emptied successfully');
     }
+
+    public function updateQty(Request $request)
+    {
+        $this->validate($request, [
+            'amount' => 'required|integer|min:1'
+        ]);
+        if (!\Session::has('cart')) {
+            return view('site.cart');
+        }
+        $oldCart = \Session::get('cart');
+        $cart = new Cart($oldCart);
+        $cart->update($request->input('product_id'), $request->input('amount'));
+        \Session::put('cart', $cart);
+        return redirect(route('product.shopping-cart'))->with('order-received', 'Items kgs updated successfully');
+    }
 }

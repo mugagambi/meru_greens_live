@@ -168,3 +168,14 @@ var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
 setTimeout(function () {
     $(".myAlert-top").hide();
 }, 10000);
+$('#myModal').on('show.bs.modal', function (event) {
+    var button = $(event.relatedTarget); // Button that triggered the modal
+    var recipient = button.data('name'); // Extract info from data-* attributes
+    var product_id = button.data('id');
+    console.log(recipient);
+    // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+    // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+    var modal = $(this);
+    modal.find('.modal-title').text('Update no. of kgs for ' + recipient);
+    modal.find('#product_id').val(product_id)
+});

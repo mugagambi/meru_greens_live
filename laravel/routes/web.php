@@ -30,6 +30,7 @@ Route::get('/quality-control', 'AboutUsController@quality_control')->name('quali
 Route::get('/products', 'ProductsController@all_products')->name('products');
 Route::get('/add-to-cart/{id}', 'ProductsController@add_to_cart')->name('add_to_cart');
 Route::get('/shopping-cart', 'ProductsController@getCart')->name('product.shopping-cart');
+Route::post('/cart', 'ProductsController@updateQty')->name('updateQty');
 Route::get('/checkout', 'ProductsController@getCheckOut')->name('checkout');
 Route::get('/empty-cart', 'ProductsController@emptyCart')->name('emptyCart');
 Route::post('/checkout', 'ProductsController@placeOrder')->name('placeOrder');
