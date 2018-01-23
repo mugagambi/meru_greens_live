@@ -54,13 +54,13 @@ class ProductsController extends Controller
     public function product_items($category)
     {
         if ($category == 'fruits') {
-            $products = Product::where('category', 'Fruits')->get();
+            $products = Product::where('category', 'Fruits')->paginate(8);
             return view('site.products', ['products' => $products, 'cat' => 'fruits']);
         } elseif ($category == 'vegetables') {
-            $products = Product::where('category', 'Vegetables')->get();
+            $products = Product::where('category', 'Vegetables')->paginate(8);
             return view('site.products', ['products' => $products, 'cat' => 'vegetables']);
         } elseif ($category == 'others') {
-            $products = Product::where('category', 'Others')->get();
+            $products = Product::where('category', 'Others')->paginate(8);
             return view('site.products', ['products' => $products, 'cat' => 'others']);
         } else {
             abort(404, 'Products with that category not found');

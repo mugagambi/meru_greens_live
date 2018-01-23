@@ -47,7 +47,7 @@
                                         @if(!$product->images->isEmpty())
                                             <a href="{{route('product',['slug' => $product->slug])}}"><img
                                                         class="card-img-top img-responsive"
-                                                        src="{{asset('uploads/'.$product->images->first()->image)}}"></a>
+                                                        data-src="{{asset('uploads/'.$product->images->first()->image)}}"></a>
                                         @endif
                                         <div class="card-block">
                                             <h4 class="card-title text-center">{{$product->name}}</h4>
@@ -90,6 +90,7 @@
                             @endforeach
                         </div>
                     @endforeach
+                    {{ $products->links() }}
                 </div>
             @else
                 <div class="container">
