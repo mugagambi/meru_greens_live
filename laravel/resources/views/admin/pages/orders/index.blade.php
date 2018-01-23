@@ -35,26 +35,23 @@
                             <th>Names</th>
                             <th>Phone</th>
                             <th>Email</th>
-                            <th>Items</th>
+                            <th>County</th>
+                            <th>Nearest Town</th>
                             <th>status</th>
+                            <th>View Order</th>
                         </tr>
                         </thead>
                         <tbody>
                         @foreach($orders as $order)
                             <tr>
                                 <td><a href="{{route('order', ['order' => $order->id])}}">OR{{$order->id}}</a></td>
-                                <td>{{$order->user->first_name}} {{$order->user->last_name}}</td>
-                                <td>{{$order->user->phone}}</td>
-                                <td>{{$order->user->email}}</td>
-                                <td>{{$order->items->count()}} item(s), <a
-                                            href="{{route('order', ['order' => $order->id])}}">view items</a></td>
-                                <td>
-                                    @if($order->processed)
-                                        <span class="label label-success">Processed</span>
-                                    @else
-                                        <span class="label label-warning">Pending</span>
-                                    @endif
-                                </td>
+                                <td>{{$order->names}}</td>
+                                <td>{{$order->phone_number}}</td>
+                                <td>{{$order->email}}</td>
+                                <td>{{$order->county}}</td>
+                                <td>{{$order->nearest_town}}</td>
+                                <td>{{$order->seen ? 'Seen' : 'Not Seen'}} </td>
+                                <td><a href="{{route('order', ['id' => $order->id])}}">view order</a></td>
                             </tr>
                         @endforeach
                         </tbody>
@@ -64,8 +61,10 @@
                             <th>Names</th>
                             <th>Phone</th>
                             <th>Email</th>
-                            <th>Items</th>
+                            <th>County</th>
+                            <th>Nearest Town</th>
                             <th>status</th>
+                            <td>View Order</td>
                         </tr>
                         </tfoot>
                     </table>

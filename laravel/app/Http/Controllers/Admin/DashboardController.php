@@ -24,7 +24,7 @@ class DashboardController extends Controller
             ->orderBy('created_at', 'desc')
             ->limit(5)
             ->get();
-        $orders = Order::orderBy('created_at', 'desc')->limit(5)->get();
+        $orders = Order::where('seen',0)->orderBy('created_at', 'desc')->limit(5)->get();
         $url = 'dashboards';
         return view('admin.pages.dashboard', ['url' => $url, 'orders_count' => $orders_count,
             'products_count' => $products_count, 'total_subs' => $total_subs, 'total_users' => $total_users,

@@ -22,6 +22,7 @@ class CreateOrdersTable extends Migration
             $table->string('nearest_town');
             $table->unsignedInteger('user_id')->nullable();
             $table->text('cart');
+            $table->boolean('seen')->default(0);
             $table->timestamps();
         });
     }

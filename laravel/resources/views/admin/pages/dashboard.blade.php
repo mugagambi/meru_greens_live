@@ -87,25 +87,19 @@
                                     <th>Names</th>
                                     <th>Phone</th>
                                     <th>Email</th>
-                                    <th>Items</th>
-                                    <th>status</th>
+                                    <th>County</th>
+                                    <th>Nearest Town</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($orders as $order)
                                     <tr>
                                         <td><a href="#">OR{{$order->id}}</a></td>
-                                        <td>{{$order->user->first_name}} {{$order->user->last_name}}</td>
-                                        <td>{{$order->user->phone}}</td>
-                                        <td>{{$order->user->email}}</td>
-                                        <td>{{$order->items->count()}} item(s), <a href="#">view items</a></td>
-                                        <td>
-                                            @if($order->processed)
-                                                <span class="label label-success">Processed</span>
-                                            @else
-                                                <span class="label label-warning">Pending</span>
-                                            @endif
-                                        </td>
+                                        <td>{{$order->names}}</td>
+                                        <td>{{$order->phone_number}}</td>
+                                        <td>{{$order->email}}</td>
+                                        <td>{{$order->county}}</td>
+                                        <td>{{$order->nearest_town}}</td>
                                     </tr>
                                 @endforeach
                                 </tbody>
@@ -115,7 +109,7 @@
                     </div>
                     <!-- /.box-body -->
                     <div class="box-footer clearfix">
-                        <a href="#" class="btn btn-sm btn-default btn-flat pull-right">View All
+                        <a href="{{route('orders')}}" class="btn btn-sm btn-default btn-flat pull-right">View All
                             Orders</a>
                     </div>
                     <!-- /.box-footer -->

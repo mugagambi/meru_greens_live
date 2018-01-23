@@ -14,36 +14,40 @@
         <div class="panel-heading">Order OR{{$order->id}}<a href="{{route('orders')}}"
                                                             class="btn btn-default pull-right">Back</a>
         </div>
-        <div class="panel-body"></div>
-        <div class="row">
-            <div class="col-sm-6">
-                <p class="text-center"><b>Names</b></p>
-                <p class="text-center">{{$order->user->first_name}} {{$order->user->last_name}}</p>
-                <p class="text-center"><b>Items</b></p>
-                <p class="text-center">{{$order->items->count()}} item(s)</p>
-            </div>
-            <div class="col-sm-6">
-                <p class="text-center"><b>Email</b></p>
-                <p class="text-center">{{$order->user->email}}</p>
-                <p class="text-center"><b>Phone</b></p>
-                <p class="text-center">{{$order->user->phone}}</p>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-sm-6">
+                    <p class="text-center"><b>Names</b></p>
+                    <p class="text-center">{{$order->names}}</p>
+                    <p class="text-center"><b>County</b></p>
+                    <p class="text-center">{{$order->county}}</p>
+                </div>
+                <div class="col-sm-6">
+                    <p class="text-center"><b>Email</b></p>
+                    <p class="text-center">{{$order->email}}</p>
+                    <p class="text-center"><b>Phone</b></p>
+                    <p class="text-center">{{$order->phone_number}}</p>
+                    <p class="text-center"><b>Nearest Town</b></p>
+                    <p class="text-center">{{$order->nearest_town}}</p>
+                </div>
             </div>
         </div>
-        <table class="table table-bordered table-striped">
-            <thead>
-            <tr>
-                <th>Product Name</th>
-                <th>Qty</th>
-            </tr>
-            </thead>
-            <tbody>
-            @foreach($order->items as $product)
-                <tr>
-                    <td>{{$product->product->name}}</td>
-                    <td>{{$product->quantity}} unit(s)</td>
-                </tr>
-            @endforeach
-            </tbody>
-        </table>
+    </div>
+    <h2 class="text-center">Ordered Items</h2>
+    <div class="row">
+        <div class="col-sm-6 col-sm-offset-3">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <ul class="list-group">
+                        @foreach($items->items as $product)
+                            <li class="list-group-item">
+                                <span class="badge">{{ $product['qty'] }} Kg(s)</span>
+                                <strong>{{$product['item']['name']}}</strong>
+                            </li>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
 @endsection
