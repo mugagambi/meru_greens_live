@@ -2229,4 +2229,10 @@ article img.pull-right, article .align-right {
     color: #a5a5a5;
     letter-spacing: 1px;
 }
+.myAlert-top {
+    position: fixed;
+    bottom: 5px;
+    left: 30%;
+    width: 50%;
+}
 

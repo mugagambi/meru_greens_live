@@ -19,83 +19,47 @@
 @section('content')
     <section id="content">
         <div class="container">
-            <div class="row">
-                <div class="col-md-8 col-md-offset-2">
-                    <h1>Shopping Cart</h1>
-                    @if (\Session::has('success'))
-                        <div class="alert alert-success alert-dismissible">
-                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;
-                            </button>
-                            <h4><i class="icon fa fa-check"></i> Success!</h4>
-                            <p>{{ \Session::get('success') }}</p>
-                        </div><br/>
-                    @endif
-                    @if(!$cart->isEmpty())
-                        <table class="table table-bordered">
-                            <thead>
-                            <tr>
-                                <th>
-                                    Product Image
-                                </th>
-                                <th>
-                                    Product Name
-                                </th>
-                                <th>
-                                    Product Description
-                                </th>
-                                <th>
-                                    Quantity
-                                </th>
-                                <th>
-                                    Remove Item
-                                </th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($cart as $item)
-                                <tr>
-                                    <td>
-                                        <img src="{{asset('uploads/'.$item->product->images->first()->image)}}"
-                                             class="img-responsive">
-                                    </td>
-                                    <td>
-                                        {{$item->product->name}}
-                                    </td>
-                                    <td>
-                                        {{str_limit($item->product->description, 100)}}
-                                        <a href="{{route('product', ['product' => $item->product->id])}}">Read more</a>
-                                    </td>
-                                    <td contenteditable='true'>
-                                    {{$item->quantity}}
-                                    <td>
-                                        <form class="delete"
-                                              action="{{route('remove_from_cart',['item' => $item->id])}}"
-                                              method="post">
-                                            {{csrf_field()}}
-                                            <input name="_method" type="hidden" value="DELETE">
-                                            <button class="btn btn-danger btn-sm"
-                                                    onclick="return ConfirmDelete()"
-                                                    type="submit">Remove
-                                            </button>
-                                        </form>
-                                    </td>
-                                </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
-                        <div class="row">
-                            <div class="col-md-6 text-left">
-                                <a href="{{route('products')}}" class="btn btn-default">continue browsing items</a>
-                            </div>
-                            <div class="col-md-6 text-right">
-                                <a href="{{route('confirm-order')}}" class="btn btn-theme">place order</a>
-                            </div>
-                        </div>
-                    @else
-                        <p class="text-center"><b>No items in the cart</b></p>
-                    @endif
+            <h3 class="text-center">My Shopping Cart</h3>
+            @if (\Session::has('order-received'))
+                <div class="alert alert-success alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                    <strong>Success!</strong> {{Session::get('order-received')}}
                 </div>
-            </div>
+            @endif
+            @if(Session::has('cart'))
+                <div class="row">
+                    <div class="col-sm-6 col-sm-offset-3">
+                        <ul class="list-group">
+                            @foreach($products as $product)
+                                <li class="list-group-item">
+                                    <span class="badge">{{ $product['qty'] }} Kg(s)</span>
+                                    <strong>{{$product['item']['name']}}</strong>
+                                    <button type="button" class="btn btn-primary btn-xs dropdown-toggle"
+                                            data-toggle="dropdown">Action <span class="caret"></span></button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">Change No. of Kgs</a></li>
+                                        <li><a href="{{route('remove_from_cart',['item' => $product['item']['id']])}}">Remove
+                                                item from cart</a></li>
+                                    </ul>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-sm-offset-3">
+                        <a href="{{route('checkout')}}" class="btn btn-theme">Checkout</a>
+                        <a href="{{route('emptyCart')}}" class="btn btn-danger pull-right">empty cart</a>
+                    </div>
+                </div>
+            @else
+                <div class="row">
+                    <div class="col-sm-6 col-sm-offset-3">
+                        <h5 class="text-center">No items in cart</h5>
+                    </div>
+                </div>
+            @endif
         </div>
     </section>
     <!-- Modal -->

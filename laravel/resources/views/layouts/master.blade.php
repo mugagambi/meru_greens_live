@@ -39,19 +39,12 @@
         <div class="top">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <ul class="topleft-info">
                             <li><i class="fa fa-phone"></i> +254709751992</li>
                         </ul>
                     </div>
-                    <div class="col-md-4 text-center">
-                        @auth
-                            <a class="btn btn-theme" href="{{route('cart')}}" title="View Shopping Cart"><i
-                                        class="fa fa-shopping-cart"></i>
-                                {{$cart_count}} items</a>
-                        @endauth
-                    </div>
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <div id="sb-search" class="sb-search">
                             <form>
                                 <input class="sb-search-input" placeholder="Enter your search term..." type="text"
@@ -66,7 +59,6 @@
                 </div>
             </div>
         </div>
-
         <div class="navbar navbar-default navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
@@ -96,7 +88,8 @@
                                data-delay="0" data-close-others="false">Products <i class="fa fa-angle-down"></i></a>
                             <ul class="dropdown-menu">
                                 <li><a href="{{route('product-category',['category' => 'fruits'])}}">Fruits</a></li>
-                                <li><a href="{{route('product-category',['category' => 'vegetables'])}}">vegetables</a></li>
+                                <li><a href="{{route('product-category',['category' => 'vegetables'])}}">vegetables</a>
+                                </li>
                                 <li><a href="{{route('product-category',['category' => 'others'])}}">Others</a></li>
                             </ul>
 
@@ -134,6 +127,13 @@
                         @guest
                             <li><a href="{{route('login')}}">Login</a></li>
                         @endguest
+                        <li>
+                            <a href="{{ route('product.shopping-cart') }}">
+                                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                Shopping Cart <span
+                                        class="badge">{{ Session::has('cart') ? count(Session::get('cart')->items) : '' }}</span>
+                            </a>
+                        </li>
                         @auth('admin')
                             <li><a href="{{route('admin.dashboard')}}">Admin</a></li>
                         @endauth
@@ -146,6 +146,13 @@
     <!-- end header -->
     @yield('breadcrump')
     @yield('content')
+    @if (\Session::has('item-added'))
+        <div class="myAlert-top alert alert-success alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+            <strong>Success!</strong> {{Session::get('item-added')}}
+        </div>
+    @endif
     <footer>
         <div class="container">
             <div class="row">
@@ -185,7 +192,8 @@
                             <li><a href="{{route('products')}}">Products</a></li>
                             <li><a href="{{route('product-category',['category' => 'fruits'])}}">Fruits</a></li>
                             <li><a href="{{route('product-category',['category' => 'vegetables'])}}">Vegetables</a></li>
-                            <li><a href="{{route('product-category',['category' => 'others'])}}">Other Categories</a></li>
+                            <li><a href="{{route('product-category',['category' => 'others'])}}">Other Categories</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -243,7 +251,6 @@
 <script src="{{asset('js/scripts.js')}}"></script>
 @yield('scripts')
 @stack('scripts')
-
 </body>
 
 </html>

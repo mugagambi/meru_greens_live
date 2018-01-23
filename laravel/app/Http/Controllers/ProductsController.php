@@ -3,16 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\SubCategory;
-use Carbon\Carbon;
+use foo\bar;
 use Illuminate\Http\Request;
 use App\Product;
 use App\Cart;
 use App\Order;
-use App\OrderItem;
 use Illuminate\Support\Facades\Auth;
-use App\Mail\OrderRequestClient;
-use App\Mail\OrderRequestAdmin;
-use Illuminate\Support\Facades\Mail;
+
 
 class ProductsController extends Controller
 {
@@ -74,10 +71,14 @@ class ProductsController extends Controller
         return view('site.product', ['product' => $product]);
     }
 
-    public function shopping_cart()
+    public function getCart()
     {
-        $cart = Cart::where('user_id', Auth::id())->orderBy('created_at', 'desc')->get();
-        return view('site.cart', ['cart' => $cart]);
+        if (!\Session::has('cart')) {
+            return view('site.cart', ['products' => null]);
+        }
+        $oldCart = \Session::get('cart');
+        $cart = new Cart($oldCart);
+        return view('site.cart', ['products' => $cart->items]);
     }
 
     public function add_to_cart(Request $request, $id)
@@ -87,7 +88,15 @@ class ProductsController extends Controller
         $cart = new Cart($oldCart);
         $cart->add($product, $product->id);
         $request->session()->put('cart', $cart);
-        return back();
+        return back()->with('item-added', 'Item added to cart.Continue shopping or Checkout by clicking on Shopping Cart');
+    }
+
+    public function getCheckOut()
+    {
+        if (!\Session::has('cart')) {
+            return view('site.cart');
+        }
+        return view('site.checkout');
     }
 
     /**
@@ -95,30 +104,63 @@ class ProductsController extends Controller
      * @return \Illuminate\Http\RedirectResponse
      * @throws \Exception
      */
-    public function remove_from_cart(Cart $item)
+    public function removeFromCart($item)
     {
-        $item->delete();
-        return redirect(route('cart'))->with('success', 'Item removed from cart');
-    }
-
-    public function confirm_order()
-    {
-        $cart = Cart::where('user_id', Auth::id())->orderBy('created_at', 'desc')->get();
-        $user = Auth::user();
-        return view('site.order-confirmation', ['user' => $user, 'cart' => $cart]);
+        if (!\Session::has('cart')) {
+            return view('site.cart');
+        }
+        $oldCart = \Session::get('cart');
+        $cart = new Cart($oldCart);
+        $cart->remove($item);
+        \Session::put('cart', $cart);
+        return redirect(route('product.shopping-cart'))->with('order-received', 'Item removed from cart successfully');
     }
 
     public function placeOrder(Request $request)
     {
-        $cart = Cart::where('user_id', Auth::id())->get();
-        $order_items = collect($cart)->transform(function ($item) {
-            return new OrderItem(['quantity' => $item->quantity, 'product_id' => $item->product_id]);
-        });
-        $order = Order::create(['user_id' => Auth::id(), 'processed' => false]);
-        $order->items()->saveMany($order_items);
-        Mail::to($request->user())->send(new OrderRequestClient($order));
-        Mail::to('hmugambi1@gmail.com')->send(new OrderRequestAdmin($order)); // TODO eneter admin email
-        Cart::where('user_id', Auth::id())->delete();
-        return redirect(route('cart'))->with('success', 'Order received.We will get in touch soon.Thank you');
+        if (!\Session::has('cart')) {
+            return view('site.cart');
+        }
+        $oldCart = \Session::get('cart');
+        $cart = new Cart($oldCart);
+        if (\Auth::check()) {
+            $order = new Order();
+            $order->names = \Auth::user()->first_name . ' ' . \Auth::user()->first_name;
+            $order->email = \Auth::user()->email;
+            $order->phone_number = \Auth::user()->phone;
+            $order->county = \Auth::user()->county;
+            $order->nearest_town = \Auth::user()->nearest_town;
+            $order->user_id = \Auth::user()->id;
+            $order->cart = serialize($cart);
+            $order->save();
+            \Session::forget('cart');
+            return redirect(route('product.shopping-cart'))->with('order-received', 'Order received.We will get in touch soon.Thank you');
+        }
+        $this->validate($request, [
+            'full_name' => 'required|string|max:200',
+            'email' => 'nullable|email',
+            'phone_number' => 'required|size:10',
+            'county' => 'required|string|max:255',
+            'nearest_town' => 'required|string|max:255'
+        ]);
+        $order = new Order();
+        $order->names = $request->input('full_name');
+        $order->email = $request->input('email');
+        $order->phone_number = $request->input('phone_number');
+        $order->county = $request->input('county');
+        $order->nearest_town = $request->input('nearest_town');
+        $order->cart = serialize($cart);
+        $order->save();
+        \Session::forget('cart');
+        return redirect(route('product.shopping-cart'))->with('order-received', 'Order received.We will get in touch soon.Thank you');
+    }
+
+    public function emptyCart(Request $request)
+    {
+        if (!\Session::has('cart')) {
+            return view('site.cart');
+        }
+        $request->session()->forget('cart');
+        return back()->with('order-received', 'Cart Emptied successfully');
     }
 }
