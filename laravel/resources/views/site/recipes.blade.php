@@ -10,14 +10,16 @@
                     <ul class="breadcrumb">
                         <li><a href="{{route('index')}}"><i class="fa fa-home"></i></a></li>
                         <li><a href="{{route('products')}}">Products</a></li>
-                        @if($product->sub_category->category == 'Fruits')
-                            <li><a href="{{route('fruits')}}">Fruits</a></li>
-                        @elseif($product->sub_category->category == 'Vegetables')
+                        @if($product->category == 'Fruits')
+                            <li><a href="{{route('product-category',['category' => 'fruits'])}}">Fruits</a></li>
+                        @elseif($product->category == 'Vegetables')
 
-                            <li><a href="{{route('vegs')}}">Vegetables</a></li>
+                            <li><a href="{{route('product-category',['category' => 'vegetables'])}}">Vegetables</a></li>
+                        @elseif($product->category == 'Others')
+                            <li><a href="{{route('product-category',['category' => 'others'])}}">Vegetables</a></li>
                         @endif
-                        <li><a href="{{route('product', ['product_id' => $product->id])}}">{{$product->name}}</a></li>
-                        <li class="active"><a href="#">{{$product->name}} recipes</a></li>
+                        <li><a href="{{route('product',['slug' => $product->slug])}}">{{$product->name}}</a></li>
+                        <li class="active"><a>{{$product->name}} recipes</a></li>
                     </ul>
                 </div>
             </div>

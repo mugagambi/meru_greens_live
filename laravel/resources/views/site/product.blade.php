@@ -48,12 +48,19 @@
                     </p>
                     <hr>
                     <div class="text-center">
-                        <a class="btn btn-theme"
-                           href="{{route('add_to_cart')}}?product={{$product->id}}"> Order
-                            now
-                        </a>
-                        <a class="btn btn-primary float-right" href="{{route('recipes')}}?product={{$product->id}}">view
-                            recipes</a>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <a class="btn btn-theme"
+                                   href="{{route('add_to_cart')}}?product={{$product->id}}"> Order
+                                    now
+                                </a>
+                            </div>
+                            <div class="col-md-6">
+                                <a class="btn btn-primary float-right"
+                                   href="{{route('recipes')}}?product={{$product->id}}">view
+                                    recipes</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
