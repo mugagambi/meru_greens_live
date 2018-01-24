@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\SubCategory;
-use foo\bar;
 use Illuminate\Http\Request;
 use App\Product;
 use App\Cart;
 use App\Order;
 use Illuminate\Support\Facades\Auth;
+use Mail;
+use App\Mail\OrderRequestAdmin;
 
 
 class ProductsController extends Controller
@@ -133,6 +134,7 @@ class ProductsController extends Controller
             $order->user_id = \Auth::user()->id;
             $order->cart = serialize($cart);
             $order->save();
+            \Mail::to('hmugambi1@gmail.com')->send(new OrderRequestAdmin($order));
             \Session::forget('cart');
             return redirect(route('product.shopping-cart'))->with('order-received', 'Order received.We will get in touch soon.Thank you');
         }
@@ -151,6 +153,7 @@ class ProductsController extends Controller
         $order->nearest_town = $request->input('nearest_town');
         $order->cart = serialize($cart);
         $order->save();
+        \Mail::to('hmugambi1@gmail.com')->send(new OrderRequestAdmin($order));
         \Session::forget('cart');
         return redirect(route('product.shopping-cart'))->with('order-received', 'Order received.We will get in touch soon.Thank you');
     }

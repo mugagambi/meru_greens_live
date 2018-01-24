@@ -34,11 +34,8 @@ class OrderRequestAdmin extends Mailable implements ShouldQueue
      */
     public function build()
     {
-        // TODO: change to website domain
         return $this->markdown('emails.orders.admin-request')
-            ->subject('Order received from merugreens.com')
-            ->with([
-                'url' => 'mailto:' . $this->order->user->email
-            ]);
+            ->subject('Order received from https://www.merugreens.com')
+            ->with('items', unserialize($this->order->cart));
     }
 }
