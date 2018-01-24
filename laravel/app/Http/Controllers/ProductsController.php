@@ -134,7 +134,7 @@ class ProductsController extends Controller
             $order->user_id = \Auth::user()->id;
             $order->cart = serialize($cart);
             $order->save();
-            \Mail::to('hmugambi1@gmail.com')->send(new OrderRequestAdmin($order));
+            \Mail::to('sales@merugreens.com')->send(new OrderRequestAdmin($order));
             \Session::forget('cart');
             return redirect(route('product.shopping-cart'))->with('order-received', 'Order received.We will get in touch soon.Thank you');
         }
@@ -153,7 +153,7 @@ class ProductsController extends Controller
         $order->nearest_town = $request->input('nearest_town');
         $order->cart = serialize($cart);
         $order->save();
-        \Mail::to('hmugambi1@gmail.com')->send(new OrderRequestAdmin($order));
+        \Mail::to('sales@merugreens.com')->send(new OrderRequestAdmin($order));
         \Session::forget('cart');
         return redirect(route('product.shopping-cart'))->with('order-received', 'Order received.We will get in touch soon.Thank you');
     }
