@@ -239,7 +239,7 @@
                         @endforeach
                     </div>
                     <div class="row">
-                        <p class="text-center"><a href="{{route('product-category',['category' => 'fruits'])}}"
+                        <p class="text-center"><a href="{{route('product-category',['category' => 'vegetables'])}}"
                                                   class="btn btn-theme">View vegetables</a>
                         </p>
                     </div>

@@ -16,12 +16,9 @@ class ProductsController extends Controller
 {
     public function all_products()
     {
-        $fruits = SubCategory::where('category', 'Fruits')
-            ->limit(6)->get();
-        $vegs = SubCategory::where('category', 'Vegetables')
-            ->limit(6)->get();
-        $other = SubCategory::where('category', 'Others')
-            ->limit(6)->get();
+        $fruits = Product::where('category', 'Fruits')->limit(6)->get();
+        $vegs = Product::where('category', 'Vegetables')->limit(6)->get();
+        $other = Product::where('category', 'Others')->limit(6)->get();
         return view('site.all-products', ['fruits' => $fruits, 'vegs' => $vegs, 'others' => $other]);
     }
 
