@@ -31,44 +31,6 @@
                         </h2>
                         {{ csrf_field() }}
                         <hr class="colorgraph">
-                        @if(empty($email))
-                            <div class="row">
-                                <label class="col-sm-4 control-label">Sign Up With:
-                                </label>
-                                <div class="col-sm-8">
-                                    <div class="row">
-                                        <div class="col-sm-4">
-                                            <a class="btn btn-social-icon btn-twitter" title="log in with twitter"
-                                               href="{{ url('login/twitter') }}">
-                                                <span class="fa fa-twitter"></span>
-                                            </a>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <a class="btn btn-social-icon btn-facebook" title="log in with facebook"
-                                               href="{{ url('login/facebook') }}">
-                                                <span class="fa fa-facebook"></span>
-                                            </a>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <a class="btn btn-social-icon btn-google" title="log in with google"
-                                               href="{{ url('login/google') }}">
-                                                <span class="fa fa-google"></span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        @else
-                            <div class="alert alert-warning alert-dismissible" role="alert">
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
-                                            aria-hidden="true">&times;</span></button>
-                                Now complete the following fields.
-                                <ul>
-                                    <li>Phone Number</li>
-                                    <li>Password</li>
-                                </ul>
-                            </div>
-                        @endif
                         <br/>
                         <div class="row">
                             <div class="col-xs-12 col-sm-6 col-md-6">

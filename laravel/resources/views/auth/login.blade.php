@@ -31,32 +31,6 @@
                             <small>To view your order history and continue ordering items</small>
                         </h2>
                         <hr class=" colorgraph">
-                        <div class="row">
-                            <label class="col-sm-3 control-label">Log In With:
-                            </label>
-                            <div class="col-sm-9">
-                                <div class="row">
-                                    <div class="col-sm-4">
-                                        <a class="btn btn-social-icon btn-twitter" title="log in with twitter"
-                                           href="{{ url('login/twitter') }}">
-                                            <span class="fa fa-twitter"></span>
-                                        </a>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <a class="btn btn-social-icon btn-facebook" title="log in with facebook"
-                                           href="{{ url('login/facebook') }}">
-                                            <span class="fa fa-facebook"></span>
-                                        </a>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <a class="btn btn-social-icon btn-google" title="log in with google"
-                                           href="{{ url('login/google') }}">
-                                            <span class="fa fa-google"></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                         <br/>
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label for="email">Email</label>
