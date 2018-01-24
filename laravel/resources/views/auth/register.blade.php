@@ -36,18 +36,26 @@
                                 <label class="col-sm-4 control-label">Sign Up With:
                                 </label>
                                 <div class="col-sm-8">
-                                    <a class="btn btn-social-icon btn-twitter" title="register with twitter"
-                                       href="{{ url('login/twitter') }}">
-                                        <span class="fa fa-twitter"></span>
-                                    </a>
-                                    <a class="btn btn-social-icon btn-facebook" title="register with facebook"
-                                       href="{{ url('login/facebook') }}">
-                                        <span class="fa fa-facebook"></span>
-                                    </a>
-                                    <a class="btn btn-social-icon btn-google" title="register with google"
-                                       href="{{ url('login/google') }}">
-                                        <span class="fa fa-google"></span>
-                                    </a>
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <a class="btn btn-social-icon btn-twitter" title="log in with twitter"
+                                               href="{{ url('login/twitter') }}">
+                                                <span class="fa fa-twitter"></span>
+                                            </a>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <a class="btn btn-social-icon btn-facebook" title="log in with facebook"
+                                               href="{{ url('login/facebook') }}">
+                                                <span class="fa fa-facebook"></span>
+                                            </a>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <a class="btn btn-social-icon btn-google" title="log in with google"
+                                               href="{{ url('login/google') }}">
+                                                <span class="fa fa-google"></span>
+                                            </a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         @else

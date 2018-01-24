@@ -153,18 +153,17 @@ jQuery(document).ready(function ($) {
     //search
     new UISearch(document.getElementById('sb-search'));
 });
-/**
- *Tawk.to api scrip
- */
-var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-(function () {
-    var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
-    s1.async = true;
-    s1.src = 'https://embed.tawk.to/5a048cb4198bd56b8c03a3c0/default';
-    s1.charset = 'UTF-8';
-    s1.setAttribute('crossorigin', '*');
-    s0.parentNode.insertBefore(s1, s0);
+<!--Start of Tawk.to Script-->
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/5a6855f6d7591465c7070b48/default';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
 })();
+<!--End of Tawk.to Script-->
 setTimeout(function () {
     $(".myAlert-top").hide();
 }, 10000);

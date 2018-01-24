@@ -86,7 +86,7 @@
     </section>
 @endsection
 @push('scripts')
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAT51z2KB_gk0Z3LgBb5KbVBJEQ3X6ZkJ4"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZIWxcZkupSZWpSMEkOa7xi0th0wMCGqw"></script>
     <script src="{{asset('js/map.min.js')}}">
     </script>
 @endpush
