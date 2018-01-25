@@ -51,7 +51,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <a class="btn btn-theme"
-                                   href="{{route('add_to_cart')}}?product={{$product->id}}"> Order
+                                   href="{{route('add_to_cart', ['id' => $product->id])}}"> Order
                                     now
                                 </a>
                             </div>
