@@ -5,9 +5,9 @@ An order was received from {{$order->names}} through the website, https://www.me
 ## Order Details
 ### Customer Details
 @component('mail::table')
-| customer names | customer phone number | customer email| county | Nearest Town|
+| customer names | customer phone number | customer email| country | county | Nearest Town|
 | ------------- |:-------------:|:-------------:|:-------------:|:-------------:|
-| {{$order->names }}| {{$order->phone_number}} | {{$order->email}} | {{$order->county}} | {{$order->nearest_town}} |
+| {{$order->names }}| {{$order->phone_number}} | {{$order->email}} | {{$countries[$order->country]}} |{{$order->county}} | {{$order->nearest_town}} |
 @endcomponent
 
 ### Ordered Items

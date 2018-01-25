@@ -66,3 +66,6 @@ mix.scripts([
 mix.scripts([
     '../public_html/js/map.js'
 ],'../public_html/js/map.min.js');
+mix.scripts([
+    '../public_html/js/checkout.js'
+], '../public_html/js/checkout.min.js');

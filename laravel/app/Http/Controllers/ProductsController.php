@@ -139,7 +139,8 @@ class ProductsController extends Controller
             'full_name' => 'required|string|max:200',
             'email' => 'nullable|email',
             'phone_number' => 'required|size:10',
-            'county' => 'required|string|max:255',
+            'country' => 'required|string|max:2',
+            'county' => 'nullable|string|max:255',
             'nearest_town' => 'required|string|max:255'
         ]);
         $order = new Order();
@@ -147,6 +148,7 @@ class ProductsController extends Controller
         $order->email = $request->input('email');
         $order->phone_number = $request->input('phone_number');
         $order->county = $request->input('county');
+        $order->country = $request->input('country');
         $order->nearest_town = $request->input('nearest_town');
         $order->cart = serialize($cart);
         $order->save();

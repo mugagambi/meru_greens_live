@@ -19,6 +19,8 @@
                 <div class="col-sm-6">
                     <p class="text-center"><b>Names</b></p>
                     <p class="text-center">{{$order->names}}</p>
+                    <p class="text-center"><b>Country</b></p>
+                    <p class="text-center">{{$countries[$order->country]}}</p>
                     <p class="text-center"><b>County</b></p>
                     <p class="text-center">{{$order->county}}</p>
                 </div>

@@ -18,7 +18,8 @@ class CreateOrdersTable extends Migration
             $table->string('names');
             $table->string('email')->nullable();
             $table->string('phone_number');
-            $table->string('county');
+            $table->string('country');
+            $table->string('county')->nullable();
             $table->string('nearest_town');
             $table->unsignedInteger('user_id')->nullable();
             $table->text('cart');
