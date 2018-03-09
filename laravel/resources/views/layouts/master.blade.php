@@ -41,7 +41,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <ul class="topleft-info">
-                            <li><i class="fa fa-phone"></i> +254709751992</li>
+                            <li><i class="fa fa-phone"></i> For HQ call +254709751992 / For EPZ call 0203559918</li>
                         </ul>
                     </div>
                     <div class="col-md-6">
@@ -166,7 +166,7 @@
                         </address>
                         <p>
                             <i class="fa fa-map-marker"> Gatimbi, Meru County, Kenya</i><br>
-                            <i class="fa fa-phone"></i> +254709751992 <br>
+                            <i class="fa fa-phone"></i> For HQ call +254709751992 / For EPZ call 0203559918 <br>
                             <i class="fa fa-envelope"></i> info@merugreens.com<br>
                             <i class="fa fa-envelope"></i> sales@merugreens.com<br>
                         </p>

@@ -56,7 +56,7 @@
                                 </address>
                                 <p><b>Location: </b>EPZ, Athi River, Off Jacaranda Road,
                                     Kenya</p>
-                                <p><b>Telephone:</b> 064-30529</p>
+                                <p><b>Telephone:</b> 0203559918</p>
                             </div>
                         </div>
                     </div>

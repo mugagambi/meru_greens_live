@@ -87,7 +87,7 @@
                             </address>
                             <p><b>Location: </b>EPZ, Athi River, Off Jacaranda Road,
                                 Kenya</p>
-                            <p><b>Telephone:</b> 064-30529</p>
+                            <p><b>Telephone:</b> 0203559918</p>
                         </div>
                     </div>
                 </div>
@@ -155,9 +155,6 @@
                                 @endif
                                 <div class="card-block">
                                     <h4 class="card-title text-center">{{$product->name}}</h4>
-                                    <div class="card-text">
-                                        {{ str_limit($product->description, $limit = 200, $end = '...') }}
-                                    </div>
                                 </div>
                                 <p class="text-center"><a
                                             href="{{route('product',['slug' => $product->slug])}}">Read
@@ -208,9 +205,6 @@
                                     @endif
                                     <div class="card-block">
                                         <h4 class="card-title text-center">{{$product->name}}</h4>
-                                        <div class="card-text">
-                                            {{ str_limit($product->description, $limit = 200, $end = '...') }}
-                                        </div>
                                     </div>
                                     <p class="text-center"><a
                                                 href="{{route('product',['slug' => $product->slug])}}">Read
