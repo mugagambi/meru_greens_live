@@ -4,6 +4,20 @@
 <head>
     <meta charset="utf-8">
     <title>@yield('title') Meru Greens</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-121775474-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-121775474-2');
+    </script>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="description" content="Meru greens groceries"/>
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -41,7 +55,8 @@
                 <div class="row">
                     <div class="col-md-6">
                         <ul class="topleft-info">
-                            <li><i class="fa fa-phone"></i> For HQ call +254 709 751 992 / For EPZ call +254 750 511 081</li>
+                            <li><i class="fa fa-phone"></i> For HQ call +254 709 751 992 / For EPZ call +254 750 511 081
+                            </li>
                         </ul>
                     </div>
                     <div class="col-md-6">
