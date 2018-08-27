@@ -41,7 +41,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <ul class="topleft-info">
-                            <li><i class="fa fa-phone"></i> For HQ call +254709751992 / For EPZ call 0203559918</li>
+                            <li><i class="fa fa-phone"></i> For HQ call +254 709 751 992 / For EPZ call +254 750 511 081</li>
                         </ul>
                     </div>
                     <div class="col-md-6">

@@ -64,3 +64,4 @@ laravel/storage/app/public/
 error_log
 .github
 /public_html/storage
+laravel/.env
