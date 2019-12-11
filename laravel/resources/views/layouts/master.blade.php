@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <title>@yield('title') Meru Greens</title>
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-121775474-2"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=<add your key here>"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
 
@@ -15,7 +15,7 @@
 
         gtag('js', new Date());
 
-        gtag('config', 'UA-121775474-2');
+        gtag('config', '<add your key here>');
     </script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
